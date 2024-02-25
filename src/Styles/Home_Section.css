@@ -1,0 +1,256 @@
+/* Section 1 - Main page */
+.main_section{
+  padding-top: 20px;
+  position: relative;
+  background-color: white no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+ .info button{
+  padding: 25px;
+  border-radius: 15px;
+  border: none;
+  color: white;
+  background-color: rgb(24, 123, 205);
+  transition: all 100ms ease-in-out;
+}
+.info button:hover{
+  background-color:rgb(255, 255, 255);
+  border: 1px solid black;
+  color:black;
+  font-weight: 600;
+  transform: scale(1.1);
+}
+.info .price{
+  font-weight: 700;
+  font-size: 1rem;
+}
+.shoe_promotion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shoe_promotion .card {
+  border-radius: 25px;
+  border: none;
+  transition: all 100ms ease-in-out;
+}
+
+.shoe_promotion .card:hover{
+  transform: scale(1.1);
+  background-color: rgb(194, 193, 193);
+}
+
+.shoe_promotion .card .img{
+  height: 120px;
+  width: auto;
+}
+
+
+
+
+
+
+
+
+/* Slider coursal section 2 */
+
+.edition_card {
+  width: 19rem;
+  border-radius: 10px; /* Add subtle curvature for a softer look */
+  transition: all 100ms ease-in-out;
+  cursor: pointer;
+  
+}
+.edition_card:hover{
+  background-color: rgb(195, 192, 192);
+  
+}
+
+.img_holder {
+  width: 100%; 
+  height: 45vh; 
+  border-radius: 10px;
+}
+.info-btn {
+  padding: 25px;
+  border-radius: 15px;
+  background-color: rgb(69, 66, 66);
+  color: white;
+  border: 1px solid white ;
+  transition: all 100ms ease-in-out;
+}
+.info-btn:hover{
+  background-color: rgb(24, 123, 205);
+  border: 1px solid black;
+  color:black;
+  font-weight: 600;
+  transform: scale(1.1);
+}
+.info_btn_section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3vh;
+}
+.info_info_section{
+  display: flex;
+  justify-content: space-evenly;
+}
+.special_edition{
+  font-family: var(--satift);
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+
+
+/* Specification section 3.0 */
+.specs_section{
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+}
+.specs_section img{
+  width: auto;
+  height: 20rem;
+}
+.specs_section button{
+  border-radius: 15px;
+  background-color: rgb(24, 123, 205);
+  color: white;
+  border: 1px solid white ;
+  transition: all 100ms ease-in-out;
+}
+.specs_section button:hover{
+  transform: scale(1.1);
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+
+
+/* Section 4 */
+
+.shoe_img_holder{
+  width: 100%; 
+  padding: 10px;
+  height: 30vh; 
+  border-radius: 10px;
+}
+.shoe_card .card{
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 100ms ease-in-out;
+}
+.shoe_card{
+  border-radius: 15px;
+  cursor: pointer;
+  
+}
+.shoe_card .card:hover{
+  border:1px solid black;
+  transform: scale(1.05);
+}
+.shoe_card button {
+  border-radius: 20px;
+  border:none;
+  color: white;
+  background-color: rgb(24, 123, 205);
+  transition: all 100ms ease-in-out;
+}
+.shoe_card button:hover {
+  border-radius: 20px;
+  border:1px solid black;
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
+.more_btn{
+  background-color: rgb(24, 123, 205);
+  border-radius: 15px;
+  color: white;
+  transition:all 100ms ease-in-out;
+  border:none;
+}
+.more_btn:hover{
+  border-radius: 20px;
+  border:1px solid black;
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}
+.line {
+  border-top: 1px solid black;
+  flex-grow: 1;
+  margin-top: 7px; 
+}
+
+
+
+
+/* section 5 customsie shoes */
+.customise_section{
+  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 20px;
+  background-image: url("../Assets//Section\ 5\ Customise_shoes/wallapaper.avif");
+  background-repeat: no-repeat;
+  background-size: 100% 100% ;
+  background-attachment: fixed;
+  background-position: center;
+ 
+
+}
+.customise_info_col ul{
+  list-style-type: disc;
+}
+.customise_info_col li{
+  font-weight: 500;
+  font-size: 1.2rem;
+}
+.customise_info_col i{
+  font-size: 0.7rem;
+  letter-spacing: normal;
+}
+.customise_info_col .shoe_img_select{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.customise_info_col .select_images{
+  height: 15vh;
+  width: 21%;
+  margin: 10px;;
+}
+ .select_img_btn{
+  border: 2px solid black;
+  border-radius: 15px;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  transition:all 100ms ease-in-out;
+}
+.select_img_btn:hover{
+  transform: scale(1.1);
+}
+.customise_info_col .select_images img{
+  width: 100%;
+  height: 100%;
+  overflow:hidden;
+}
+
+.customising_btn {
+  background-color: rgb(24, 123, 205);
+  border-radius: 15px;
+  color: white;
+  transition: all 100ms ease-in-out;
+  border: none;
+}
+
+.customising_btn:hover {
+  border-radius: 20px;
+  border: 1px solid black;
+  background-color: white;
+  color: black;
+  transform: scale(1.1);
+}

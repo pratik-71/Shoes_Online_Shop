@@ -13,7 +13,7 @@ root.render(
   <>
     <Header />
     <App />
-    <Footer />
+    <Footer/>
   </>
 );
 
