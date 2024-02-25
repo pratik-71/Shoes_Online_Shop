@@ -1,15 +1,16 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Col, Container, Row } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import sign_up  from "../../Assets/login/sign up.jpg"
 
-const Sign_in = () => {
+const Sign_Up = () => {
   return (
-    <>
-      <Container className="my-5">
+    <div>
+       <Container className="my-5">
         <Row className="m-5">
           <Col md={6}>
             <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
+              src={sign_up}
               className="img-fluid mx-auto d-block"
               alt="Phone image"
               style={{ maxWidth: "100%", height: "0 auto" }}
@@ -18,7 +19,25 @@ const Sign_in = () => {
 
           <Col md={6} className="my-auto">
             <form>
-              <h3 className="text-center">Sign In</h3>
+              <h3 className="text-center">Sign Up</h3>
+              <div className="mb-3">
+                <label>Full Name</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter First name"
+                />
+              </div>
+              <div className="mb-3">
+                <label>Phone Number</label>
+                <input
+                  max={10}
+                  min={10}
+                  type="number"
+                  className="form-control"
+                  placeholder="Enter Phone Number"
+                />
+              </div>
               <div className="mb-3">
                 <label>Email address</label>
                 <input
@@ -35,32 +54,14 @@ const Sign_in = () => {
                   placeholder="Enter password"
                 />
               </div>
-              <div className="mb-3">
-                <div className="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input"
-                    id="customCheck1"
-                  />
-                  <label
-                    className="custom-control-label"
-                    htmlFor="customCheck1"
-                  >
-                    Remember me
-                  </label>
-                </div>
-              </div>
               <div className="d-grid">
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
               </div>
-              <p className="forgot-password text-right my-2">
-                Forgot <a href="#">password?</a>
-              </p>
               <div className="text-center">
                 <p>
-                  Didn't have account ? <Link to="/Sign_up">Sign-Up</Link>
+                  Didn't have account ? <Link to="/Sign_in">Sign-In</Link>
                 </p>
                 OR
               </div>
@@ -78,8 +79,8 @@ const Sign_in = () => {
           </Col>
         </Row>
       </Container>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Sign_in;
+export default Sign_Up
