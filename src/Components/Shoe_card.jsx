@@ -1,9 +1,20 @@
 import React from "react";
 import { Button, Card, Container, Row } from "react-bootstrap";
 import "../../src/Styles/Home_Section.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setProduct_details } from "../Redux/Slices/ProductSlice";
 
 const Shoe_card = ({ data }) => {
+   const dispatch = useDispatch()
+   const navigate = useNavigate()
+
+  const handleBuynow = (e,item) => {
+    e.preventDefault()
+    dispatch(setProduct_details(item))
+    navigate("/Update_product")
+  }
+
   return (
     <>
       <Container className="d-flex justify-content-between flex-wrap shoe_card">
@@ -18,9 +29,9 @@ const Shoe_card = ({ data }) => {
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text><strong>{item.price}</strong></Card.Text>
                 <div className="d-flex justify-content-evenly">
-                  <Link to="/product_details">
-                    <button className=" px-3 py-1">Buy now</button>
-                  </Link>
+                
+                    <button onClick={(e)=>handleBuynow(e,item)} className=" px-3 py-1">Buy now</button>
+                
                   <Link>
                     <button className=" px-3 py-1">Add to Cart</button>
                   </Link>

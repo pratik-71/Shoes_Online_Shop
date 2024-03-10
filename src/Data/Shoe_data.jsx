@@ -100,55 +100,55 @@ export const Air = [
         id:1,
         image:a_shoe1,
         title:"OXY Runner",
-        price:"25.00$"
+        price:25.00
     },
     {
         id:2,
         image:a_shoe2,
         title:"OXY AIR Jordan",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:3,
         image:a_shoe3,
         title:"OXY Runner s-21",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:4,
         image:a_shoe4,
         title:"OXY AIR MAX",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:5,
         image:a_shoe5,
         title:"OXY AIR 2",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:6,
         image:a_shoe6,
         title:"OXY AIR Pro",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:7,
         image:a_shoe7,
         title:"OXY Mercurial A7",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:8,
         image:a_shoe8,
         title:"OXY Mercurial A5",
-        price:"25.00$"
+        price:25.00
     }
 ]
 
@@ -160,27 +160,27 @@ export const Women =[
         id:1,
         image:w_shoe1,
         title:"OXY Runner",
-        price:"25.00$"
+        price:25.00
     },
     {
         id:2,
         image:w_shoe2,
         title:"OXY AIR Jordan",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:3,
         image:w_shoe3,
         title:"OXY Runner s-21",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {
         id:4,
         image:w_shoe4,
         title:"OXY AIR MAX",
-        price:"25.00$"
+        price:25.00
     }
     ,
     {

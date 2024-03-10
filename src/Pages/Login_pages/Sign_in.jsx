@@ -1,8 +1,18 @@
-import React from "react";
-import { Col, Container, Row } from "react-bootstrap";
+import React, { useState } from "react";
+import { Col, Container, Form, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const Sign_in = () => {
+
+  const [error_messege , seterror_messege] = useState("")
+  const {register,handleSubmit,formState:{errors},watch} = useForm()
+  const Password = watch("Password")
+  
+  
+  const send_form_data = () => { }
+
+
   return (
     <>
       <Container>
@@ -17,24 +27,45 @@ const Sign_in = () => {
           </Col>
 
           <Col md={6} className="my-auto">
-            <form>
+            <Form onSubmit={handleSubmit(send_form_data)}>
               <h3 className="text-center">Sign In</h3>
+
+
               <div className="mb-3">
-                <label>Email address</label>
                 <input
                   type="email"
                   className="form-control"
                   placeholder="Enter email"
+                  {...register("Email", {
+                    required: "Email is required",
+                    pattern: {
+                      value: /^\S+@\S+$/i,
+                      message: "Invalid Email format",
+                    },
+                  })}
                 />
+               {errors.Email && <p  className="text-danger small">{errors.Email.message}</p>}
               </div>
+
+
               <div className="mb-3">
-                <label>Password</label>
                 <input
                   type="password"
                   className="form-control"
                   placeholder="Enter password"
+                  {...register("Password", {
+                    required: "password is required",
+                    minLength: {
+                      value: 5,
+                      message: "password should have at least 5 characters"
+                    }
+                  })}
                 />
+                {errors.Password && <p  className="text-danger small">{errors.Password.message}</p>}
               </div>
+
+
+
               <div className="mb-3">
                 <div className="custom-control custom-checkbox">
                   <input
@@ -43,18 +74,23 @@ const Sign_in = () => {
                     id="customCheck1"
                   />
                   <label
-                    className="custom-control-label"
+                    className="custom-control-label mx-1"
                     htmlFor="customCheck1"
                   >
                     Remember me
                   </label>
                 </div>
               </div>
+
+
               <div className="d-grid">
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
               </div>
+
+              </Form>
+
               <p className="forgot-password text-right my-2">
                 Forgot <a href="#">password?</a>
               </p>
@@ -74,7 +110,7 @@ const Sign_in = () => {
                   <button className="px-2 py-1 bg-primary text-white border-0 rounded"> <i class="bi bi-facebook mx-1"></i>Facebook</button>
                 </div>
               </div>
-            </form>
+            
           </Col>
         </Row>
       </Container>

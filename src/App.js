@@ -7,6 +7,8 @@ import Sign_Up from './Pages/Login_pages/Sign_Up';
 import Display_product from './Pages/Products/Products_details/Display_product';
 import Products_skeleton from './Pages/All_products/Products_skeleton';
 import Address_skeleton from './Pages/Address/Address_skeleton';
+import Add_product from './Pages/Admin/Add_product';
+import Update_product from './Pages/Admin/Update_product';
 
 
 
@@ -22,6 +24,8 @@ function App() {
     <Route path='/products' element={<Products_skeleton/>}></Route>
     <Route path='/product_details' element={<Display_product/>}></Route>
     <Route path='/address' element={<Address_skeleton/>}></Route>
+    <Route path='/Add_product' element={<Add_product/>}></Route>
+    <Route path='/Update_product' element={<Update_product/>}></Route>
   </Routes>
   </BrowserRouter>
   </>
