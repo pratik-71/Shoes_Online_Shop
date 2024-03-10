@@ -13,23 +13,34 @@ const Sign_Up = () => {
               src={sign_up}
               className="img-fluid mx-auto d-block"
               alt="Phone image"
-              style={{ maxWidth: "100%", height: "0 auto" }}
+              style={{ maxWidth: "100%", height: " auto" }}
             />
           </Col>
 
           <Col md={6} className="my-auto">
             <form>
-              <h3 className="text-center">Sign Up</h3>
+              <h3 className="text-center my-2">Sign Up</h3>
+
+
               <div className="mb-3">
-                <label>Full Name</label>
                 <input
                   type="text"
                   className="form-control"
                   placeholder="Enter First name"
                 />
               </div>
+
+
               <div className="mb-3">
-                <label>Phone Number</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Enter last name"
+                />
+              </div>
+
+
+              <div className="mb-3">
                 <input
                   max={10}
                   min={10}
@@ -38,28 +49,34 @@ const Sign_Up = () => {
                   placeholder="Enter Phone Number"
                 />
               </div>
+
+
               <div className="mb-3">
-                <label>Email address</label>
                 <input
                   type="email"
                   className="form-control"
                   placeholder="Enter email"
                 />
               </div>
+
+
               <div className="mb-3">
-                <label>Password</label>
                 <input
                   type="password"
                   className="form-control"
                   placeholder="Enter password"
                 />
               </div>
+
+
               <div className="d-grid">
                 <button type="submit" className="btn btn-primary">
                   Submit
                 </button>
               </div>
-              <div className="text-center">
+
+
+              <div className="text-center my-4">
                 <p>
                   Didn't have account ? <Link to="/Sign_in">Sign-In</Link>
                 </p>

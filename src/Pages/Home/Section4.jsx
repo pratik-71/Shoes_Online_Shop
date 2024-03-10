@@ -44,7 +44,9 @@ const Section4 = () => {
 
         <div className="d-flex justify-content-center align-items-center">
           <div className="line mx-3"></div>
+          <Link to="/products">
           <button className="px-4 py-1 my-3 more_btn">More</button>
+          </Link>
           <div className="line mx-3"></div>
         </div>
       </Container>

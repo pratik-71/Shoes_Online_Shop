@@ -1,0 +1,52 @@
+/* Add this CSS to your existing CSS file or create a new one */
+
+.size-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .size-button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 100ms ease-in-out;
+  }
+  
+  .size-button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .size-button.selected {
+    border-color: #007bff;
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+
+
+
+
+
+  .edition_card {
+    width: 19rem;
+    border-radius: 10px; 
+    transition: all 100ms ease-in-out;
+    cursor: pointer;
+    
+  }
+  .edition_card:hover{
+    background-color: rgb(195, 192, 192);
+    
+  }
+  
+  .img_holder {
+    width: 100%; 
+    height: 35vh; 
+    border-radius: 10px;
+  }

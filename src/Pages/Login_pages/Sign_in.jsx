@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 const Sign_in = () => {
   return (
     <>
-      <Container className="my-5">
-        <Row className="m-5">
-          <Col md={6}>
+      <Container>
+        <Row className="my-5">
+          <Col md={6} className="d-flex align-items-center">
             <img
               src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-              className="img-fluid mx-auto d-block"
+              className="img-fluid mx-auto my-5"
               alt="Phone image"
-              style={{ maxWidth: "100%", height: "0 auto" }}
+              style={{ maxWidth: "100%", height: " auto" }}
             />
           </Col>
 

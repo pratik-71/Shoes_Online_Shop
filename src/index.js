@@ -7,13 +7,18 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
+import { BrowserRouter, Router } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
-    <Header />
+
+  
+   <Header />
     <App />
     <Footer/>
+   
+
   </>
 );
 

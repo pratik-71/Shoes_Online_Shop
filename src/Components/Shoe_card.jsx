@@ -16,11 +16,13 @@ const Shoe_card = ({ data }) => {
               />
               <Card.Body className="text-center">
                 <Card.Title>{item.title}</Card.Title>
-                <p>OXY special Super confortable breathing material fused with Liqui-Flow to absorb shock .... </p>
                 <Card.Text><strong>{item.price}</strong></Card.Text>
-                <div>
-                  <Link>
+                <div className="d-flex justify-content-evenly">
+                  <Link to="/product_details">
                     <button className=" px-3 py-1">Buy now</button>
+                  </Link>
+                  <Link>
+                    <button className=" px-3 py-1">Add to Cart</button>
                   </Link>
                 </div>
               </Card.Body>

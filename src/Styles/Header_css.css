@@ -38,3 +38,47 @@ header .nav-link button:hover{
 
 
 }
+.search-button {
+    transition: transform 0.2s ease-in-out; 
+}
+
+ .btn {
+  border-radius: 20px;
+  background-color: rgb(24, 123, 205) ;
+  color: white;
+}
+  
+  .search-input:focus + .search-button {
+   border: 2px solid ;
+  }
+
+  .search-input {
+    outline: none; 
+    border-radius: 20px;
+  }
+  .input-group .form-control.search-input:focus {
+   box-shadow:  none!important;
+    
+}
+/* Move sign-in button inside toggle button on small screens */
+@media (max-width: 767px) {
+    .navbar-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .navbar-nav .nav-item {
+      margin: 10px 0;
+    }
+  
+    .navbar-nav .nav-item .nav-link {
+      padding: 10px;
+      text-align: center;
+    }
+  
+    .navbar-toggler + .navbar-collapse .navbar-nav {
+      margin-top: auto;
+    }
+  }
+  
