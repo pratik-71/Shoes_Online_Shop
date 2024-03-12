@@ -38,6 +38,18 @@ header .nav-link button:hover{
 
 
 }
+.dropdown-toggle {
+  outline: none;
+  box-shadow: none;
+  background-color:transparent;
+  border: none;
+}
+.dropdown-toggle:focus {
+  outline: none;
+  box-shadow: none;
+  background-color:transparent;
+  border: none;
+}
 .search-button {
     transition: transform 0.2s ease-in-out; 
 }

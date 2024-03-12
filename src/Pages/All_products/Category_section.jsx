@@ -12,10 +12,19 @@ const Category_section = () => {
         className="mb-3"
         fill
       >
+        <Tab eventKey="All" title="All">
+           <Shoe_card data={premium} /> 
+        </Tab>
+        <Tab eventKey="Special Edition" title="Special Edition">
+           <Shoe_card data={premium} /> 
+        </Tab>
         <Tab eventKey="Premium" title="Premium">
            <Shoe_card data={premium} /> 
         </Tab>
         <Tab eventKey="Air" title="Air">
+           <Shoe_card data={Air} /> 
+        </Tab>
+        <Tab eventKey="Jordan" title="Jordan">
            <Shoe_card data={Air} /> 
         </Tab>
         <Tab eventKey="Women" title="Women Wear">

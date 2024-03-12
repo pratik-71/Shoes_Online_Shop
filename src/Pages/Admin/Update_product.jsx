@@ -32,7 +32,7 @@ const Update_product = ({data}) => {
         <Row>
           <Col md={{ span: 6, offset: 3 }} className="my-4">
             <div className="text-center">
-              <h4>Add Product</h4>
+              <h4>Update Product</h4>
               <Form onSubmit={handleSubmit(send_form_data)}>
                 <div className="mb-3">
                   <input
@@ -74,12 +74,13 @@ const Update_product = ({data}) => {
 
                 <div className="mb-3">
                   <Form.Select
+                    value={item.category}
                     aria-label="Select Product Category"
                     {...register("productCategory", {
                       required: "Product category is required",
                     })}
                   >
-                    <option value="">Select Product Category</option>
+                    <option></option>
                     {productCategories.map((category, index) => (
                       <option key={index} value={category}>
                         {category}
@@ -109,6 +110,7 @@ const Update_product = ({data}) => {
                 <div className="mb-3">
                   <input
                     type="number"
+                    value={item.Available_items}
                     className="form-control"
                     {...register("Available_items", {
                       required: "Available items is required",
@@ -125,6 +127,7 @@ const Update_product = ({data}) => {
                 <div className="mb-3">
                   <input
                     type="text"
+                    value={item.Description}
                     className="form-control"
                     {...register("Description", {
                       required: "Description is required",

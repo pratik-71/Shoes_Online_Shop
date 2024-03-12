@@ -21,7 +21,7 @@ const Display_product = () => {
       <Container>
         <Row>
           <Col className="my-auto">
-            <img src={shoe} alt="shoe-image" className="img-fluid " />
+            <img src={shoe} alt="shoe-image" className="img-fluid my-auto" />
           </Col>
           <Col className="my-4">
             <h2 className="text-center">Air Jordan Max</h2>
@@ -100,14 +100,24 @@ const Display_product = () => {
 
             </div>
 
+            <div className="my-4 d-flex align-items-center justify-content-center text-center">
+              <label className="mx-2">Enter Quantity of product</label>
+              <input
+                  type="number"
+                  rounded
+                  defaultValue={1}
+                  className="form-control search-input b-0 w-25"
+                />
+            </div>
+
               <div className="text-center column">
                 <Link to="/address">
-                <button className="px-5 py-1 bg-dark rounded text-white my-4">Buy Now</button>
+                <button className="px-5 py-1 bg-dark rounded text-white">Buy Now</button>
                 </Link>              
                 </div>
 
               <div className="text-center">
-              <button className="px-4 py-1 border-1 rounded ">Add to Cart</button>
+              <button className="px-4 py-1 border-1 rounded my-3">Add to Cart</button>
               </div>
 
 

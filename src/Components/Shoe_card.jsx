@@ -12,7 +12,7 @@ const Shoe_card = ({ data }) => {
   const handleBuynow = (e,item) => {
     e.preventDefault()
     dispatch(setProduct_details(item))
-    navigate("/Update_product")
+    navigate("/product_details")
   }
 
   return (

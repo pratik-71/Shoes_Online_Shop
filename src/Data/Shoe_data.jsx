@@ -99,8 +99,9 @@ export const Air = [
     {
         id:1,
         image:a_shoe1,
-        title:"OXY Runner",
-        price:25.00
+        title:"OXY Runner SF",
+        price:25.00,
+        category:"Air"
     },
     {
         id:2,

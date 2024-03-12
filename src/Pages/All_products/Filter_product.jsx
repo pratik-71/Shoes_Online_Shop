@@ -77,10 +77,11 @@ const Filter_product = () => {
             <div className="size-buttons d-flex flex-wrap">
               {Colors.map((color) => (
                 <button
+  
                   className={`my-1 btn rounded-circle size-button ${
                     selectedColor === color.name ? "selected" : ""
                   }`}
-                  style={{ backgroundColor: color.color, height:"40px" }}
+                  style={{ backgroundColor: color.color, height:"40px",border:"1px solid black" }}
                   onClick={() => handleColorChange(color.name)}
                 ></button>
               ))}
