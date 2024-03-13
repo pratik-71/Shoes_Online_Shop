@@ -1,0 +1,15 @@
+.return_order_card{
+    box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    transform: translate(1.2);
+    cursor: pointer;
+}
+
+.return_order_btn:hover{
+    transition:all 13ms ease-in-out
+}
+
+.Return_order_btn button:hover{
+    background-color: black;
+    color: white;
+    transition:all 100ms ease-in-out
+}

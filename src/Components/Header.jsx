@@ -16,7 +16,7 @@ const Header = () => {
         <Navbar
           collapseOnSelect
           expand="lg"
-          className="my-custom-container mx-3"
+          className="my-custom-container"
         >
           <Container fluid={true}>
             <div className="d-flex align-items-center justify-content-between">
@@ -37,7 +37,8 @@ const Header = () => {
                 <Nav.Link href="/Products">KIDS</Nav.Link>
               </Nav>
             </Navbar.Collapse>
-            <Form className="d-flex ms-auto">
+
+            <Form className="d-flex align-items-center">
               <div className="input-group">
                 <input
                   type="text"
@@ -57,7 +58,7 @@ const Header = () => {
               </div>
             </Form>
 
-            <Nav className="ms-auto">
+            <Nav className="d-flex align-items-center">
               {isAuthenticated ? (
                 <>
                   <Nav.Link href="/Sign_in">
@@ -84,23 +85,24 @@ const Header = () => {
                       style={{ backgroundColor: "transparent" }}
                     >
                       <div>
-                        <img src={image} className="rounded-circle" style={{ height: "7vh", border: "2px solid black" }} />
+                        <img src={image} className="rounded-circle my-auto"
+                         style={{ height: "7vh", border: "2px solid black" }} />
                       </div>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu >
-                      <Dropdown.Item href="#/action-1" active>
-                        Action
+                      <Dropdown.Item href="#/action-1">
+                        My Account
                       </Dropdown.Item>
                       <Dropdown.Item href="#/action-2">
-                        Another action
+                        Returns and Orders
                       </Dropdown.Item>
                       <Dropdown.Item href="#/action-3">
-                        Something else
+                        Log Out
                       </Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item href="#/action-4">
-                        Separated link
+                        Unkown action
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
