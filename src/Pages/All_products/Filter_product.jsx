@@ -4,13 +4,17 @@ import {
   Form
 } from "react-bootstrap";
 import { Colors } from "../../Data/Colors";
+import { useDispatch } from "react-redux";
+import { setFilter_products, setRange_filter } from "../../Redux/Slices/ProductSlice";
 
 const Filter_product = () => {
-  const [maxValue, setMaxValue] = useState(2000);
+  const dispatch = useDispatch()
+  const [maxValue, setMaxValue] = useState(500);
   const [selectedColor, setSelectedColor] = useState("");
 
   const handleRangeChange = (event) => {
     setMaxValue(parseInt(event.target.value));
+    dispatch(setRange_filter(event.target.value))
   };
 
   const handleColorChange = (color) => {
@@ -33,27 +37,35 @@ const Filter_product = () => {
                   inline
                   label="High to Low"
                   name="group1"
+                  onChange={()=>dispatch(setFilter_products("HighTOLow"))}
                 />
                 <Form.Check
                   type="radio"
                   inline
                   label="Low to High"
                   name="group1"
+                  onChange={()=>dispatch(setFilter_products("LowToHigh"))}
                 />
-                <Form.Check type="radio" inline label="Default" name="group1" />
+                <Form.Check type="radio" 
+                inline label="Default" 
+                name="group1"
+                onChange={()=>dispatch(setFilter_products("Defualt"))} />
+                
                 <div className="price_range d-flex justify-content-between">
-                  <Form.Label> Select Range</Form.Label>
+                  <Form.Label> Select Maximum Price</Form.Label>
                   <span>{maxValue}</span>
                 </div>
                 <Form.Range
                   value={maxValue}
                   onChange={handleRangeChange}
-                  max={5000}
+                  max={800}
                 />
               </div>
             </Form>
           </Accordion.Body>
         </Accordion.Item>
+
+
 
         <Accordion.Item eventKey="2">
           <Accordion.Header>Availability</Accordion.Header>

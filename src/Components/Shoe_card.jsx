@@ -2,16 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Button, Card, Container, Row } from "react-bootstrap";
 import "../../src/Styles/Home_Section.css";
 import { Link, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setProduct_details } from "../Redux/Slices/ProductSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setProduct_details, setProducts } from "../Redux/Slices/ProductSlice";
 import axios from "axios";
 
 const Shoe_card = ({ selected_category }) => {
-  const [products, setproducts] = useState([]);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-
+const products = useSelector((state)=>state.products.products)
 
   // --------------- handle buy now button --------------
   const handleBuynow = (e, item) => {
@@ -30,7 +29,7 @@ const Shoe_card = ({ selected_category }) => {
           "http://localhost:3001/products/all_product"
         );
         if (response) {
-          setproducts(response.data);
+          dispatch(setProducts(response.data))
         }
       } catch (error) {
         console.log(error);
