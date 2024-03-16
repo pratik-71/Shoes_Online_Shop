@@ -1,22 +1,45 @@
 import React, { useState } from 'react'
 import { Col, Container, Form, Row } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import sign_up  from "../../Assets/login/sign up.jpg"
 import { useForm } from 'react-hook-form'
+import axios from 'axios'
 
 const Sign_Up = () => {
 
 const [error_messege , seterror_messege] = useState("")
 const {register,handleSubmit,formState:{errors},watch} = useForm()
 const Password = watch("Password")
+const navigate = useNavigate()
 
 
-const send_form_data = () => { }
+
+const send_form_data = async(formData) => {
+   try{
+    const response = await axios.post("http://localhost:3001/auth/register",{
+      firstname:formData.Firstname,
+      lastname:formData.Lastname,
+      phone_number:formData.Phone_number,
+      email:formData.Email,
+      password:formData.Password
+    }) 
+    if (response) {
+      navigate("/Sign_in")
+   } else {
+      console.log(response.statusText); 
+      seterror_messege(response.statusText); 
+   }
+   }
+   catch(error){
+   console.log(error)
+   seterror_messege(error.message)
+   }
+ }
 
   return (
     <div>
-       <Container className="my-5">
-        <Row className="m-5">
+       <Container>
+        <Row className="mx-5 my-3">
           <Col md={6}>
             <img
               src={sign_up}
@@ -175,6 +198,9 @@ const send_form_data = () => { }
               </div>
             </Form>
           </Col>
+        </Row>
+        <Row>
+          <p>{error_messege}</p>
         </Row>
       </Container>
     </div>

@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -10,7 +11,19 @@ const Sign_in = () => {
   const Password = watch("Password")
   
   
-  const send_form_data = () => { }
+  const send_form_data = async(formData) => { 
+    try {
+      const response = await axios.post("http://localhost:3001/auth/sign_in",{
+         email:formData.Email,
+         password:formData.Password
+      })
+      if(response){
+        console.log(response)
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
 
   return (

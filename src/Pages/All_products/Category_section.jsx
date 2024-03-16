@@ -1,21 +1,48 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Air, Women, mercurial, premium } from "../../Data/Shoe_data";
 import Shoe_card from "../../Components/Shoe_card";
 import { Tab, Tabs } from "react-bootstrap";
+import axios from "axios";
 
 const Category_section = () => {
+
+   const [categories,setcategories] = useState([])
+
+const get_categories = async(req,res)=>{
+   try {
+      const response = await axios.get("http://localhost:3001/products/get_categories")
+      if(categories){
+         setcategories(response.data)
+      }
+   } catch (error) {
+      console.log(error)
+   }
+}
+
+
+useEffect(()=>{
+   get_categories()
+},[])
+
   return (
     <div>
       <Tabs
-        defaultActiveKey="Premium"
+        defaultActiveKey="All"
         id="fill-tab-example"
         className="mb-3"
         fill
       >
-        <Tab eventKey="All" title="All">
-           <Shoe_card data={premium} /> 
-        </Tab>
-        <Tab eventKey="Special Edition" title="Special Edition">
+         <Tab eventKey={"All"} title={"All"}>
+            <Shoe_card selected_category={"All"}/>
+         </Tab>
+        {
+         categories.map((category,index)=>(
+            <Tab key={index} eventKey={category} title={category}>
+                <Shoe_card selected_category = {category}/>
+            </Tab>
+         ))
+        }
+        {/* <Tab eventKey="Special Edition" title="Special Edition">
            <Shoe_card data={premium} /> 
         </Tab>
         <Tab eventKey="Premium" title="Premium">
@@ -32,7 +59,7 @@ const Category_section = () => {
         </Tab>
         <Tab eventKey="Mercurial" title="Mercurial">
            <Shoe_card data={mercurial} /> 
-        </Tab>
+        </Tab> */}
       </Tabs>
     </div>
   );

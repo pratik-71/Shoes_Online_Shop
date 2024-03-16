@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
@@ -11,6 +12,8 @@ const Add_product = () => {
     "Jordan",
     "Runner",
     "Flexo",
+    "Women High Heel",
+    "Formal",
     "other",
   ];
   const [error_message, set_error_message] = useState("");
@@ -20,7 +23,25 @@ const Add_product = () => {
     formState: { errors },
   } = useForm();
 
-  const send_form_data = () => {};
+  const send_form_data = async(formData) => {
+    try {
+      const response = await axios.post("http://localhost:3001/products/add_product",{
+        imageURL:formData.Image_url,
+        title:formData.Product_name,
+        description:formData.Description,
+        price:formData.Price,
+        category:formData.ProductCategory,
+        color:formData.Color,
+        gender:formData.Gender,
+        Available_items:formData.Available_items
+      })
+      if(response){
+          console.log(response.data)
+      }
+    } catch (error) {
+      console.log(error.message)
+    }
+  };
 
   return (
     <>
@@ -70,20 +91,64 @@ const Add_product = () => {
                 <div className="mb-3">
                   <Form.Select
                     aria-label="Select Product Category"
-                    {...register("productCategory", {
+                    {...register("ProductCategory", {
                       required: "Product category is required",
                     })}
                   >
-                    <option value="">Select Product Category</option>
+                    <option value="" disabled>Select Category</option>
                     {productCategories.map((category, index) => (
                       <option key={index} value={category}>
                         {category}
                       </option>
                     ))}
                   </Form.Select>
-                  {errors.productCategory && (
+                  {errors.ProductCategory && (
                     <p className="text-danger small">
-                      {errors.productCategory.message}
+                      {errors.ProductCategory.message}
+                    </p>
+                  )}
+                </div>
+
+
+                <div className="mb-3">
+                  <Form.Select
+                    aria-label="Select Color"
+                    {...register("Color", {
+                      required: "Color is required",
+                    })}
+                  >
+                    <option value="" disabled>Select color</option>
+                    {["White","Grey ","Red","Mint","Blue","Green","Brown","Pink","Black","Saffron","Aqua","Yellow","Purple"]
+                    .map((category, index) => (
+                      <option key={index} value={category}>
+                        {category}
+                      </option>
+                    ))}
+                  </Form.Select>
+                  {errors.Color && (
+                    <p className="text-danger small">
+                      {errors.Color.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="mb-3">
+                  <Form.Select
+                    aria-label="Select Gender"
+                    {...register("Gender", {
+                      required: "Gender is required",
+                    })}
+                  >
+                    <option value="" disabled>Select Gender</option>
+                    {["Male","Women","All"].map((gender, index) => (
+                      <option key={index} value={gender}>
+                        {gender}
+                      </option>
+                    ))}
+                  </Form.Select>
+                  {errors.Gender && (
+                    <p className="text-danger small">
+                      {errors.Gender.message}
                     </p>
                   )}
                 </div>
