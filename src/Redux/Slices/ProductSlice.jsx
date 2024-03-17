@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     products : [],
     product_details : null,
-    filter_products : []
 }
 
 let defaultproducts = []
@@ -37,9 +36,18 @@ const ProductSlice = createSlice({
     },
     setRange_filter : (state,action)=>{
         state.products = defaultproducts.filter((product) => product.price <= action.payload);
+    },
+
+    setColor_filter:(state,action)=>{        
+        state.products = defaultproducts
+        state.products = [...state.products].filter((color)=>color.color == action.payload)   
+    },
+    setGender_filter:(state,action)=>{
+       state.products = defaultproducts
+       state.products = [...state.products].filter((gender)=>gender.gender==action.payload)
     }
    }
 })
 
-export const {setProducts,setProduct_details,setFilter_products,setRange_filter} = ProductSlice.actions
+export const {setProducts,setColor_filter,setGender_filter,setProduct_details,setFilter_products,setRange_filter} = ProductSlice.actions
 export default ProductSlice.reducer

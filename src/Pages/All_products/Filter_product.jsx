@@ -5,7 +5,7 @@ import {
 } from "react-bootstrap";
 import { Colors } from "../../Data/Colors";
 import { useDispatch } from "react-redux";
-import { setFilter_products, setRange_filter } from "../../Redux/Slices/ProductSlice";
+import { setFilter_products, setRange_filter, setColor_filter, setGender_filter } from "../../Redux/Slices/ProductSlice";
 
 const Filter_product = () => {
   const dispatch = useDispatch()
@@ -19,6 +19,7 @@ const Filter_product = () => {
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
+    dispatch(setColor_filter(color))
   };
 
 
@@ -86,15 +87,15 @@ const Filter_product = () => {
         <Accordion.Item eventKey="3">
           <Accordion.Header>Shoe Color</Accordion.Header>
           <Accordion.Body>
-            <div className="size-buttons d-flex flex-wrap">
+            <div className="size-buttons d-flex flex-wrap box">
               {Colors.map((color) => (
                 <button
   
                   className={`my-1 btn rounded-circle size-button ${
                     selectedColor === color.name ? "selected" : ""
                   }`}
-                  style={{ backgroundColor: color.color, height:"40px",border:"1px solid black" }}
-                  onClick={() => handleColorChange(color.name)}
+                  style={{ backgroundColor: color.color, height:"40px", border: selectedColor === color.name ? "3px solid black" : "1px solid black"}}
+                  onClick={() => handleColorChange(color.title)}
                 ></button>
               ))}
             </div>
@@ -110,18 +111,21 @@ const Filter_product = () => {
                   type="radio"
                   inline
                   label="Men"
+                  onChange={()=>dispatch(setGender_filter("Male"))}
                   name="group3"
                 /><br></br>
                 <Form.Check
                   type="radio"
                   inline
                   label="Women"
+                  onChange={()=>dispatch(setGender_filter("Women"))}
                   name="group3"
                 /><br></br>
                  <Form.Check
                   type="radio"
                   inline
-                  label="Kids"
+                  label="All"
+                  onChange={()=>dispatch(setGender_filter("All"))}
                   name="group3"
                 />
                 </div>

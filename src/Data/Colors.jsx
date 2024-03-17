@@ -1,50 +1,62 @@
 export const Colors = [
     {
         color:"#FFFFFF",
-        name:"white"
+        name:"white",
+        title:"White"
     },
     {
         color:" #808080",
-        name:"grey"
+        name:"grey",
+        title:"Grey"
     },
     {
         color:"#050505",
-        name:"black"
+        name:"black",
+        title:"Black"
     },
     {
         color:"#730b0b",
-        name:"brown"
+        name:"brown",
+        title:"Brown"
     },
     {
         color:"#e81515",
-        name:"red"
+        name:"red",
+        title:"Red"
     },
     {
         color:"#ed6f21",
-        name:"orange"
+        name:"orange",
+        title:"Orange"
     },
     {
         color:"#8311bd",
-        name:"purple"
+        name:"purple",
+        title:"Purple"
     },
     {
         color:"#2712b0",
-        name:"blue"
+        name:"blue",
+        title:"Blue"
     },
     {
         color:"#0ed1e3",
-        name:"sky"
+        name:"sky",title:"Aqua"
+
     },
     {
         color:"#078513",
-        name:"green"
+        name:"green",
+        title:"Green"
     },
     {
         color:"#f2ef22",
-        name:"yellow"
+        name:"yellow",
+        title:"Yellow"
     },
     {
         color:"#f222e1",
-        name:"pink"
+        name:"pink",
+        title:"Pink"
     }
 ]
