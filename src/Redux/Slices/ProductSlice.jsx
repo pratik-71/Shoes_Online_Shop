@@ -44,7 +44,7 @@ const ProductSlice = createSlice({
     },
     setGender_filter:(state,action)=>{
        state.products = defaultproducts
-       state.products = [...state.products].filter((gender)=>gender.gender==action.payload)
+       state.products = [...state.products].filter((gender)=>gender.gender==action.payload )
     }
    }
 })

@@ -1,30 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
-
-import shoe from "../../../Assets/Section4_All_shoes/air/a_shoe8.png";
 import "../Products_details/product.css";
 import Display_accordination from "./Display_accordination";
 import Display_other_shoe from "./Display_other_shoe";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import axios from "axios";
 
 const Display_product = () => {
 
   const [selectedSize, setSelectedSize] = useState(""); 
+  const [product,setproduct] = useState({})
+  const {id} = useParams()
+  console.log(id)
 
   const handleSizeChange = (size) => {
     setSelectedSize(size); 
   };
 
+  const get_product = async(req,res)=>{
+   try {
+    const response = await axios.get(`http://localhost:3001/products/get_product/${id}`)
+    if(!response){
+      console.log("no data found")
+    }
+    setproduct(response.data)
+   } catch (error) {
+    console.log(error.messege)
+   }
+  }
+  
+  useEffect(()=>{
+    get_product()
+  },[])
 
   return (
     <div>
       <Container>
         <Row>
           <Col className="my-auto">
-            <img src={shoe} alt="shoe-image" className="img-fluid my-auto" />
+            <img src={product.imageURL} alt="shoe-image" className="img-fluid my-auto" />
           </Col>
           <Col className="my-4">
-            <h2 className="text-center">Air Jordan Max</h2>
+            <h2 className="text-center">{product.title}</h2>
             <hr></hr>
 
             <p>
@@ -35,7 +52,7 @@ const Display_product = () => {
               bloom from its AF-1 roots.
             </p>
 
-            <h5>MRP : $599.00 </h5>
+            <h5>MRP : ${product.price}.00 </h5>
 
 
             <p className="text-secondary">
