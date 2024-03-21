@@ -15,8 +15,9 @@ const New_address = () => {
   } = useForm();
 
   const send_form_address = async(formData)=>{
+    const jwttoken = localStorage.getItem("Auth-Token")
     try {
-      const response = await axios.post("http://localhost:3000/products/",{
+      const response = await axios.post("http://localhost:3001/products/add_address",{
         fullname : formData.Fullname,
         phone_number:formData.Phone_number,
         state:selectedState,
@@ -24,6 +25,11 @@ const New_address = () => {
         pincode:formData.Pincode,
         city_village:formData.City_village_name,
         building_village:formData.House_building_name
+      },{
+        headers:{
+          "X-Auth-Token" : jwttoken
+        }
+       
       })
     } catch (error) {
       console.log(error)

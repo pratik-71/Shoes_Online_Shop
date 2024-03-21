@@ -2,14 +2,14 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Sign_in = () => {
 
   const [error_messege , seterror_messege] = useState("")
   const {register,handleSubmit,formState:{errors},watch} = useForm()
   const Password = watch("Password")
-  
+  const navigate = useNavigate()
   
   const send_form_data = async(formData) => { 
     try {
@@ -19,7 +19,8 @@ const Sign_in = () => {
       })
       if(response){
         const token = response.headers["x-auth-token"];
-        localStorage.setItem('Auth-Token', token);       
+        localStorage.setItem('Auth-Token', token); 
+        navigate("/products")
       }
     } catch (error) {
       console.log(error.message)
