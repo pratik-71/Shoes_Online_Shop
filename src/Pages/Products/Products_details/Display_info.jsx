@@ -4,12 +4,15 @@ import { Col, Row } from "react-bootstrap";
 import "../Products_details/product.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setProduct_details } from "../../../Redux/Slices/ProductSlice";
 
 const Display_info = () => {
 
 
   const [selectedSize, setSelectedSize] = useState("");
   const [product, setproduct] = useState({});
+  const dispatch = useDispatch()
   const { id } = useParams();
   console.log(id);
 
@@ -26,6 +29,7 @@ const Display_info = () => {
         console.log("no data found");
       }
       setproduct(response.data);
+      dispatch(setProduct_details(response.data))
     } catch (error) {
       console.log(error.messege);
     }

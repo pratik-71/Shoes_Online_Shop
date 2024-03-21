@@ -17,7 +17,7 @@ const ProductSlice = createSlice({
     },
     setProduct_details : (state,action)=>{
         state.product_details = action.payload
-        console.log(state.product_details)
+        
     },
     setFilter_products : (state,action)=>{
        if(action.payload=="HighTOLow"){
@@ -49,5 +49,7 @@ const ProductSlice = createSlice({
    }
 })
 
-export const {setProducts,setColor_filter,setGender_filter,setProduct_details,setFilter_products,setRange_filter} = ProductSlice.actions
+export const {setProducts,setColor_filter,setGender_filter,setCategory,
+    setProduct_details,setFilter_products,setRange_filter} = ProductSlice.actions
+
 export default ProductSlice.reducer

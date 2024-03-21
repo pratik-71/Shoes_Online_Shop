@@ -8,9 +8,7 @@ const Confirm_order = () => {
     <div>
       <Container className='my-5'>
         <Row>
-        <Col className="my-auto">
-            <img src={shoe} alt="shoe-image" className="img-fluid my-auto" />
-          </Col>
+       
           <Col>
             <div className="text-center">
                 <h4>Product details</h4>
@@ -44,6 +42,9 @@ const Confirm_order = () => {
                 </Table>
             </div>
           </Col>
+          <Col className="my-auto">
+            <img src={shoe} alt="shoe-image" className="img-fluid my-auto" />
+          </Col>
           <Col>
           <div className="text-center">
             <h4>Delievery Address</h4>
@@ -76,6 +77,10 @@ const Confirm_order = () => {
                     <tr>
                         <td><strong>Village/Building name</strong></td>
                         <td>RCS Complex</td>
+                    </tr>
+                    <tr>
+                        <td><strong>PIN code</strong></td>
+                        <td>539521</td>
                     </tr>
                    </tbody>
                 </Table>

@@ -139,7 +139,7 @@
   border-radius: 10px;
 }
 .shoe_card .card{
-  box-shadow: 0 4px 15px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   transition: all 100ms ease-in-out;
 }
 .shoe_card{

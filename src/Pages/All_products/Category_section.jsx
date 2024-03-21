@@ -3,11 +3,13 @@ import { Air, Women, mercurial, premium } from "../../Data/Shoe_data";
 import Shoe_card from "../../Components/Shoe_card";
 import { Tab, Tabs } from "react-bootstrap";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Category_section = () => {
 
    const [categories,setcategories] = useState([])
-
+   const default_category = useSelector((state)=>state.products.category)
+   console.log(default_category)
 const get_categories = async(req,res)=>{
    try {
       const response = await axios.get("http://localhost:3001/products/get_categories")
@@ -27,7 +29,7 @@ useEffect(()=>{
   return (
     <div>
       <Tabs
-        defaultActiveKey="All"
+        defaultActiveKey={default_category}
         id="fill-tab-example"
         className="mb-3"
         fill
@@ -42,24 +44,7 @@ useEffect(()=>{
             </Tab>
          ))
         }
-        {/* <Tab eventKey="Special Edition" title="Special Edition">
-           <Shoe_card data={premium} /> 
-        </Tab>
-        <Tab eventKey="Premium" title="Premium">
-           <Shoe_card data={premium} /> 
-        </Tab>
-        <Tab eventKey="Air" title="Air">
-           <Shoe_card data={Air} /> 
-        </Tab>
-        <Tab eventKey="Jordan" title="Jordan">
-           <Shoe_card data={Air} /> 
-        </Tab>
-        <Tab eventKey="Women" title="Women Wear">
-           <Shoe_card data={Women} />
-        </Tab>
-        <Tab eventKey="Mercurial" title="Mercurial">
-           <Shoe_card data={mercurial} /> 
-        </Tab> */}
+      
       </Tabs>
     </div>
   );

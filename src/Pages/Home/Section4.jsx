@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Container } from "react-bootstrap";
 import Tab from "react-bootstrap/Tab";
 import Tabs from "react-bootstrap/Tabs";
@@ -11,9 +11,8 @@ import { Link, useNavigate } from "react-router-dom";
 const Section4 = () => {
   const navigate = useNavigate();
 
-  const more_redirect = () => {
-    console.log("triggered");
-    navigate("special_edition");
+  const redirect = () => {
+   navigate("/products")
   };
 
   return (
@@ -21,23 +20,25 @@ const Section4 = () => {
       <Container>
         <h2 className="text-center">Our Products</h2>
         <Tabs
-          defaultActiveKey="Premium"
+          defaultActiveKey="Men"
           id="fill-tab-example"
           className="mb-3"
+          onClick={()=>redirect()}
           fill
-
->
-          <Tab eventKey="Premium" title="Premium">
-            <Shoe_card data={premium} />
+        >
+          <Tab eventKey="Men" title="Men">
+            <Shoe_card  selected_category={"All"} display_number={8}/> 
           </Tab>
-          <Tab eventKey="Air" title="Air">
-            <Shoe_card data={Air} />
+          <Tab eventKey="Women" title="Women Wear" ob>
+            <Shoe_card  />
           </Tab>
-          <Tab eventKey="Women" title="Women Wear">
-            <Shoe_card data={Women} />
+        
+         <Tab eventKey="Sports" title="Sports Wear">
+            <Shoe_card />
           </Tab>
-          <Tab eventKey="Mercurial" title="Mercurial">
-            <Shoe_card data={mercurial} />
+        
+          <Tab eventKey="Office" title="Office Wear">
+            <Shoe_card />
           </Tab>
           <Tab eventKey="More" title="More"></Tab>
         </Tabs>

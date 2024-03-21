@@ -16,7 +16,6 @@ const Add_product = () => {
     "Formal",
     "other",
   ];
-  const [error_message, set_error_message] = useState("");
   const {
     register,
     handleSubmit,
@@ -51,6 +50,8 @@ const Add_product = () => {
             <div className="text-center">
               <h4>Add Product</h4>
               <Form onSubmit={handleSubmit(send_form_data)}>
+
+
                 <div className="mb-3">
                   <input
                     type="text"

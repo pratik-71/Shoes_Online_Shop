@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Container } from "react-bootstrap";
-
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../Products_details/product.css";
-import { Air } from "../../../Data/Shoe_data";
+import { useSelector } from "react-redux";
 
 const Display_other_shoe = () => {
+  const category =  useSelector((state) => state.products.product_details);
+  const allProducts = useSelector((state) => state.products.products);
+  
+  const filteredProducts = category 
+    ? allProducts.filter((data) => data.category === category.category) 
+    : allProducts;
+   
+    
+
   const responsive = {
     superLargeDesktop: {
       breakpoint: { max: 4000, min: 3000 },
@@ -32,31 +40,59 @@ const Display_other_shoe = () => {
 
   return (
     <>
-    <section className="my-3">
-    <Container>
-        <div className="title">
-          <h4 className="text-center"> You many also like </h4>
-          <hr></hr>
-        </div>
-        <Carousel 
-          responsive={responsive}
-          infinite={true}
-          customTransition="transform 500ms ease-in-out"
-        >
-          {Air.map((data, index) => (
-            <div className="edition_card" key={index}>
-              <Card>
-                <img src={data.image} className="img_holder"  />
-                <Card.Body>
-                  <Card.Title className="info_info_section">{data.price} </Card.Title>
-                </Card.Body>
-              </Card>
-            </div>
-          ))}
-        </Carousel>
-      </Container>
-    </section>
-      
+       <section className="my-5" >
+        <Container>
+          <div className="title">
+            <h5 className="text-center"> You many also like </h5>
+            <hr />
+          </div>
+          <div className="p-3 coursal_box ">
+            <Carousel 
+              responsive={responsive}
+              infinite={true}
+              customTransition="transform 500ms ease-in-out"
+            >
+              {filteredProducts.map((data, index) => (
+                <div className="edition_card " key={index}>
+                  <Card>
+                    <img src={data.imageURL} className="img_holder" alt="Product" />
+                    <Card.Body className="card-body">
+                      <Card.Title className="info_info_section">{data.price}.00$ </Card.Title>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </Container>
+      </section>
+
+      <section className="my-5" >
+        <Container>
+          <div className="title">
+            <h5> Explore in different category </h5>
+            <hr />
+          </div>
+          <div className="p-3 coursal_box">
+            <Carousel 
+              responsive={responsive}
+              infinite={true}
+              customTransition="transform 500ms ease-in-out"
+            >
+              {filteredProducts.map((data, index) => (
+                <div className="edition_card" key={index}>
+                  <Card>
+                    <img src={data.imageURL} className="img_holder" alt="Product" />
+                    <Card.Body>
+                      <Card.Title className="info_info_section">{data.price}.00$ </Card.Title>
+                    </Card.Body>
+                  </Card>
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        </Container>
+      </section>
     </>
   );
 };

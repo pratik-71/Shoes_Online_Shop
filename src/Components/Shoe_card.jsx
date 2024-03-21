@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setProduct_details, setProducts } from "../Redux/Slices/ProductSlice";
 import axios from "axios";
 
-const Shoe_card = ({ selected_category }) => {
+const Shoe_card = ({ selected_category,display_number }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const products = useSelector((state) => state.products.products);
@@ -32,10 +32,14 @@ const Shoe_card = ({ selected_category }) => {
   }, []);
 
   // -------------- Filter product categories ----------------
-  const filtered_products =
+  let filtered_products =
     selected_category === "All"
       ? products
       : products.filter((data) => data.category === selected_category);
+
+  if(display_number==8){
+    filtered_products = filtered_products.slice(0,display_number)  
+  }  
 
   return (
     <>

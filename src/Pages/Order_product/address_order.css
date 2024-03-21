@@ -1,0 +1,5 @@
+/* Ensure there are no other conflicting styles */
+.address-option input[type="radio"]:checked {
+    border: 2px solid green;
+  }
+  

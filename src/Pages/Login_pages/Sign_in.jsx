@@ -18,7 +18,8 @@ const Sign_in = () => {
          password:formData.Password
       })
       if(response){
-        console.log(response)
+        const token = response.headers["x-auth-token"];
+        localStorage.setItem('Auth-Token', token);       
       }
     } catch (error) {
       console.log(error.message)

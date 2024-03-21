@@ -92,12 +92,12 @@ const Add_review = () => {
             </Form.Group>
           </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
+        <Modal.Footer className="d-flex justify-content-between mx-3">
+          <Button className="bg-danger border-0" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
+          <Button className="bg-success " onClick={handleClose}>
+            Submit
           </Button>
         </Modal.Footer>
       </Modal>
