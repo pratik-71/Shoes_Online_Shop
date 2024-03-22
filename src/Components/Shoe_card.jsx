@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Container, Row } from "react-bootstrap";
+import { Button, Card, Container, Image, Row } from "react-bootstrap";
 import "../../src/Styles/Home_Section.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -53,12 +53,14 @@ const Shoe_card = ({ selected_category,display_number }) => {
           </h5>
         ) : (
           filtered_products.map((item) => (
-            <Card style={{ width: "18rem" }} className="my-3" key={item._id}>
+            <Card style={{ width: "18rem",height:"50vh" }} className="my-3" key={item._id}>
+              <div className="image_box">
               <img
                 src={item.imageURL}
                 alt="shoe image"
-                className="shoe_img_holder bg-light"
+                className="shoe_img_holder"
               />
+              </div>
               <Card.Body className="text-center">
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>

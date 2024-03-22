@@ -4,7 +4,7 @@ import { Accordion, Button } from "react-bootstrap";
 const Display_accordination = () => {
   return (
     <>
-      <Accordion defaultActiveKey="0" flush className="my-4">
+      <Accordion defaultActiveKey="0" flush className="my-1">
         <Accordion.Item eventKey="1">
           <Accordion.Header>Product details</Accordion.Header>
           <Accordion.Body>

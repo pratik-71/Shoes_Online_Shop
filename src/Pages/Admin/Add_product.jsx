@@ -13,6 +13,7 @@ const Add_product = () => {
     "Runner",
     "Flexo",
     "Women High Heel",
+    "Women slipper",
     "Formal",
     "other",
   ];
@@ -119,7 +120,7 @@ const Add_product = () => {
                     })}
                   >
                     <option value="" disabled>Select color</option>
-                    {["White","Grey ","Red","Mint","Blue","Green","Brown","Pink","Black","Saffron","Aqua","Yellow","Purple"]
+                    {["White","Grey","Red","Mint","Blue","Green","Brown","Pink","Black","Saffron","Aqua","Yellow","Purple"]
                     .map((category, index) => (
                       <option key={index} value={category}>
                         {category}

@@ -45,15 +45,17 @@ const Display_info = () => {
   return (
     <div>
         <Row>
-        <Col className="my-auto">
+        <Col md={5} className="my-auto ">
+            <div className="image_box">
             <img
               src={product.imageURL}
               alt="shoe-image"
               className="img-fluid my-auto"
-              style={{ height: "50vh", width: "500px" }}
+              style={{ height: "40vh", width: "450px" }}
             />
+            </div>
           </Col>
-          <Col className="my-4">
+          <Col className="my-4 ">
             <h2 className="text-center">{product.title}</h2>
             <hr></hr>
 
