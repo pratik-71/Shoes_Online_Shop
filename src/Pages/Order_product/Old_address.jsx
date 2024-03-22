@@ -6,9 +6,25 @@ import "../Order_product/order.css"
 const Old_address = () => {
   const [old_address, setOld_address] = useState([]);
 
+  const delete_address = async(id)=>{
+    console.log(id)
+    try {
+      const response = await axios.delete("http://localhost:3001/products/delete_address",{
+        data: { id: id }
+      })
+      if(response){
+        console.log(response)
+        get_address()
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   const get_address = async () => {
     try {
       const token = localStorage.getItem("Auth-Token");
+
       const response = await axios.get(
         "http://localhost:3001/products/get_address",
         {
@@ -31,15 +47,12 @@ const Old_address = () => {
     get_address();
   }, []);
 
-  const handleDeleteAddress = (id) => {
-    console.log("Deleting address with id:", id);
-  };
 
   return (
     <>
       <div className="old_address">
         <h4 className="text-center">Use Old Address</h4>
-        <FormGroup style={{ height: "60vh", overflow: "scroll" }}>
+        <FormGroup style={{ maxHeight: "60vh", overflow: "scroll" }}>
           <div className="mb-3 my-3 d-flex flex-column p-2">
             {old_address.map((add) => (
               <label
@@ -62,7 +75,7 @@ const Old_address = () => {
                
                 <button
                   className="delete-button"
-                  onClick={() => handleDeleteAddress(add.id)}
+                  onClick={() => delete_address(add._id)}
                 >
                  <i class="bi bi-archive-fill"></i>
                 </button>

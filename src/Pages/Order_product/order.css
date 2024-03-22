@@ -4,6 +4,9 @@
     border-radius: 20px;
     overflow: hidden;
   }
+  .address-option:visited{
+    border: 2px solid green;
+  }
   
   .delete-button {
     position: absolute;
