@@ -40,14 +40,14 @@ const Section2 = () => {
         <Carousel 
           responsive={responsive}
           autoPlay={true}
-          autoPlaySpeed={1500} // Increased autoplay speed
+          autoPlaySpeed={1500} 
           infinite={true}
           customTransition="transform 500ms ease-in-out"
         >
           {coursal.map((data, index) => (
             <div className="edition_card" key={index}>
               <Card>
-                <img src={data.image} className="img_holder"  />
+                <img src={data.image} className="img_holder" style={{height:"50vh"}} />
                 <Card.Body>
                   <Card.Title className="info_info_section">{data.title} 
                   <p className="mx-2">{data.price}</p></Card.Title>

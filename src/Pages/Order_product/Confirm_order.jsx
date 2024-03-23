@@ -16,6 +16,7 @@ const Confirm_order = () => {
   return (
     <div>
       <Container className='my-5'>
+        <Row className='text-center'><h3>Review Your Details</h3></Row>
         <Row>
        
           <Col>
@@ -107,7 +108,9 @@ const Confirm_order = () => {
                 <h5>Your Order will be delieverd in 3rd March</h5>
             </div>
             <div className='text-center'> 
-                <button className='px-5 py-2 bg-primary rounded border-0 text-white'>Place Order</button>
+               <Link to="/Order_placed">
+               <button className='px-5 py-2 bg-primary rounded border-0 text-white'>Place Order</button>
+               </Link>
             </div>
         </Row>
       </Container>

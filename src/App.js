@@ -11,6 +11,7 @@ import Add_product from './Pages/Admin/Add_product';
 import Update_product from './Pages/Admin/Update_product';
 import Confirm_order from './Pages/Order_product/Confirm_order';
 import Account_skeleton from './Pages/Account/Account_skeleton';
+import Order_placed from './Pages/Order_product/Order_placed';
 
 
 
@@ -29,6 +30,7 @@ function App() {
     <Route path='/Add_product' element={<Add_product/>}></Route>
     <Route path='/Update_product' element={<Update_product/>}></Route>
     <Route path='/Order' element={<Confirm_order/>}></Route>
+    <Route path='/Order_placed' element={<Order_placed/>}></Route>
     <Route path='/Account' element={<Account_skeleton/>}></Route>
   </Routes>
   </BrowserRouter>
