@@ -13,6 +13,7 @@ const AddressSlice = createSlice({
             state.old_addresses = action.payload
         },
         setSelectedAddress : (state,action)=>{
+            console.log(state.selected_address)
             state.selected_address = action.payload
         }
     }

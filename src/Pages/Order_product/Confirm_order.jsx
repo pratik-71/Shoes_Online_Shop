@@ -1,9 +1,18 @@
 import React from 'react'
 import { Col, Container, Row, Table } from 'react-bootstrap'
 import shoe from "../../Assets/Section4_All_shoes/air/a_shoe8.png";
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 const Confirm_order = () => {
+
+    const product = useSelector((state)=>state.products.product_details)
+    const address = useSelector((state)=>state.addresses.selected_address)
+
+    console.log(product)
+    console.log(address)
+
   return (
     <div>
       <Container className='my-5'>
@@ -16,27 +25,27 @@ const Confirm_order = () => {
                    <tbody>
                     <tr>
                         <td><strong>Name</strong></td>
-                        <td>Nike Air Jordan</td>
+                        <td>{product.title}</td>
                     </tr>
                     <tr>
                         <td><strong>Category</strong></td>
-                        <td>Air Jordan</td>
+                        <td>{product.category}</td>
                     </tr>
                     <tr>
                         <td><strong>Size</strong></td>
-                        <td>UK 9</td>
+                        <td>{product.size}</td>
                     </tr>
                     <tr>
                         <td><strong>Price</strong></td>
-                        <td>599$</td>
+                        <td>{product.price}</td>
                     </tr>
                     <tr>
                         <td><strong>Quantity</strong></td>
-                        <td>3</td>
+                        <td>{product.quantity}</td>
                     </tr>
                     <tr>
                         <td><strong>Total Bill</strong></td>
-                        <td>1800$</td>
+                        <td>{product.quantity * product.price}</td>
                     </tr>
                    </tbody>
                 </Table>
@@ -52,38 +61,39 @@ const Confirm_order = () => {
                    <tbody>
                     <tr>
                         <td><strong>Name</strong></td>
-                        <td>Pratik Dabhade</td>
+                        <td>{address.fullname}</td>
                     </tr>
                     <tr>
                         <td><strong>Phone Number</strong></td>
-                        <td>9977668811</td>
+                        <td>{address.phone_number}</td>
                     </tr>
                     <tr>
                         <td><strong>State</strong></td>
-                        <td>Maharashtra</td>
+                        <td>{address.state}</td>
                     </tr>
                     <tr>
                         <td><strong>District</strong></td>
-                        <td>Raigad</td>
+                        <td>{address.district}</td>
                     </tr>
                     <tr>
-                        <td><strong>City</strong></td>
-                        <td>Mumbai</td>
+                        <td><strong>City / Village</strong></td>
+                        <td>{address.city_village}</td>
                     </tr>
                     <tr>
-                        <td><strong>Road name</strong></td>
-                        <td>RCS Road</td>
+                        <td><strong>Pincode</strong></td>
+                        <td>{address.pincode}</td>
                     </tr>
                     <tr>
-                        <td><strong>Village/Building name</strong></td>
-                        <td>RCS Complex</td>
-                    </tr>
-                    <tr>
-                        <td><strong>PIN code</strong></td>
-                        <td>539521</td>
+                        <td><strong>Village / Building name</strong></td>
+                        <td>{address.building_village}</td>
                     </tr>
                    </tbody>
                 </Table>
+                <div className="text-center">
+                    <Link to="/address">
+                      <button className='bg-warning px-3 py-1 border-0 rounded'>Edit Address</button>
+                    </Link>
+                </div>
           </div>
           </Col>
         </Row>
