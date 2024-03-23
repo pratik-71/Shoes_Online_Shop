@@ -49,6 +49,11 @@ const Confirm_order = () => {
                     </tr>
                    </tbody>
                 </Table>
+                <div className="text-center">
+                    <Link to="/products">
+                      <button className='bg-warning px-3 py-1 border-0 rounded'>Explore Other products</button>
+                    </Link>
+                </div>
             </div>
           </Col>
           <Col className="my-auto">

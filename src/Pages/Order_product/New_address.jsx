@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import { Col, Form, Row } from "react-bootstrap";
 import { states } from "../../Data/Addresses";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setSelectedAddress } from "../../Redux/Slices/AddressSlice";
 
 const New_address = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
   const [selectedState, setselectedState] = useState("");
   const [selectedDistrict, setselectedDistrict] = useState([]);
   const {
@@ -31,6 +35,11 @@ const New_address = () => {
         }
        
       })
+
+      if(response){
+        dispatch(setSelectedAddress(response.data))
+        navigate("/order")
+      }
     } catch (error) {
       console.log(error)
     }
