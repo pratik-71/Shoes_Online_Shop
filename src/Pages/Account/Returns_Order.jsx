@@ -1,36 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
 import shoe from "../../Assets/Section4_All_shoes/air/a_shoe3.png";
 import shoe2 from "../../Assets/Section4_All_shoes/air/a_shoe8.png";
 import "./Account_style.css";
+import axios from "axios";
 
 const Returns_Order = () => {
-  const cart = [
-    {
-      id: 1,
-      name: "Nike Air Jordan Max",
-      description:
-        "The Nike Air Jordan Max comes with comfort that allows you to push your limits without any problem. Crafted with a leather sole and available in various color options.",
-      price: 149.99,
-      image: shoe,
-    },
-    {
-      id: 2,
-      name: "Adidas UltraBoost",
-      description:
-        "The Adidas UltraBoost is designed for both comfort and performance. Its innovative design and technology provide a responsive feel with every step.",
-      price: 179.99,
-      image: shoe2,
-    },
-    {
-      id: 1,
-      name: "Nike Air Jordan Max",
-      description:
-        "The Nike Air Jordan Max comes with comfort that allows you to push your limits without any problem. Crafted with a leather sole and available in various color options.",
-      price: 149.99,
-      image: shoe,
-    },
-  ];
+  
+   const [order,setorder] = useState([])
+
+
+  const get_order = () =>{
+    const jwttoken = localStorage.getItem("Auth-Token")
+    try {
+      const response = axios.get("http://loalhost:3001/products/get_order",{
+        headers:{
+          "X-Auth-Token": jwttoken
+        }
+      })
+      if(response){
+        setorder(response.data)
+      }
+    } catch (error) {
+      
+    }
+  }
 
   return (
     <div>
@@ -44,9 +38,9 @@ const Returns_Order = () => {
         >
              
 
-             <Tab eventKey="Order" title="Order">
+             <Tab eventKey="Order" title="Orders">
       <div className="row my-4 d-flex justify-content-center">
-        {cart.map((shoe, index) => (
+        {order.map((shoe, index) => (
           <div key={index} className="col-lg-3 mx-3 mb-4 return_order_card">
             <div className="return_order_card-sm p-2">
               <div className="delivery-info">
@@ -81,7 +75,7 @@ const Returns_Order = () => {
 
           <Tab eventKey="Delievered Products" title="Delievered Products">    
 
-          {cart.map((shoe) => (
+          {order.map((shoe) => (
               <>
                 <Row className="return_order_card my-4 p-2">
                   <Row>
@@ -122,7 +116,7 @@ const Returns_Order = () => {
 
           </Tab>
           <Tab eventKey="Cancelled Products" title="Cancelled Products" >
-          {cart.map((shoe) => (
+          {order.map((shoe) => (
               <>
                 <Row className="return_order_card my-4 p-2">
                   <Row>

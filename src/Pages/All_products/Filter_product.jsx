@@ -88,6 +88,9 @@ const Filter_product = () => {
           <Accordion.Header>Shoe Color</Accordion.Header>
           <Accordion.Body>
             <div className="size-buttons d-flex flex-wrap box">
+              <button className="my-1 btn rounded-circle size-button"
+              style={{ height:"40px"}}>
+                All</button>
               {Colors.map((color) => (
                 <button
   

@@ -13,6 +13,9 @@ const Shoe_card = ({ selected_category,display_number }) => {
   const [loading, setLoading] = useState(true);
 
   // ------------ get all products ---------------
+
+
+
   useEffect(() => {
     const get_products = async () => {
       try {
@@ -30,6 +33,31 @@ const Shoe_card = ({ selected_category,display_number }) => {
     };
     get_products();
   }, []);
+
+
+
+  const handle_add_cart=(item)=>{
+    const jwttoken = localStorage.getItem("Auth-Token")
+    try {
+       console.log(item._id)
+      const response = axios.post("http://localhost:3001/products/add_cart",{
+        product : item._id,
+        imageURL:item.imageURL,
+        title:item.title,
+        price:item.price
+      },{
+        headers:{
+          "X-Auth-Token": jwttoken
+        }
+      })
+
+      if(response){
+        console.log("item added succesfully")
+      }
+    } catch (error) {
+      
+    }
+  }
 
   // -------------- Filter product categories ----------------
   let filtered_products =
@@ -66,14 +94,23 @@ const Shoe_card = ({ selected_category,display_number }) => {
                 <Card.Text>
                   <strong>{item.price}</strong>
                 </Card.Text>
-                <div className="d-flex justify-content-evenly">
+                <div className="d-flex justify-content-center flex-wrap">
                   <Link to={`/product_details/${item._id}`}>
-                  <button className=" px-3 py-1">Buy now</button>
+                  <button className=" px-3 py-1 mx-1">Buy now</button>
                   </Link>
                  
                   <Link>
-                    <button className=" px-3 py-1">Add to Cart</button>
+                    <button className=" px-3 py-1 mx-1" onClick={()=>handle_add_cart(item)}>Add to Cart</button>
                   </Link>
+
+                  <Link to={`/Update_product/${item._id}`}>
+                  <button className=" px-3 py-1 my-2 mx-1 bg-warning text-black">Modify</button>
+                  </Link>
+                 
+                  <Link>
+                    <button  className=" px-3 py-1 my-2 mx-1  bg-danger">Delete</button>
+                  </Link>
+
                 </div>
               </Card.Body>
             </Card>

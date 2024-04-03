@@ -28,9 +28,10 @@ function App() {
     <Route path='/product_details/:id' element={<Display_product/>}></Route>
     <Route path='/address' element={<Address_skeleton/>}></Route>
     <Route path='/Add_product' element={<Add_product/>}></Route>
-    <Route path='/Update_product' element={<Update_product/>}></Route>
+    <Route path='/Update_product/:id' element={<Update_product/>}></Route>
     <Route path='/Order' element={<Confirm_order/>}></Route>
     <Route path='/Order_placed' element={<Order_placed/>}></Route>
+    <Route path='/Account' element={<Account_skeleton/>}></Route>
     <Route path='/Account' element={<Account_skeleton/>}></Route>
   </Routes>
   </BrowserRouter>

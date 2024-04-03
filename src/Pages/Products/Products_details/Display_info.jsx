@@ -10,6 +10,7 @@ const Display_info = () => {
   const [selectedSize, setSelectedSize] = useState(6);
   const [quantity, setquantity] = useState(1);
   const [product, setproduct] = useState({});
+  const [isinstock,setisinstock] = useState(true)
   const dispatch = useDispatch();
   const { id } = useParams();
   console.log(id);
@@ -23,6 +24,7 @@ const Display_info = () => {
         console.log("no data found");
       }
       setproduct(response.data);
+      if(response.data.available_items<=0){setisinstock(false)}
     } catch (error) {
       console.log(error.messege);
     }
@@ -131,6 +133,13 @@ const Display_info = () => {
             </button>
           </div>
 
+          <div className="text-center my-3">
+           {
+            isinstock ?  <h6>Available Units : {product.available_items}</h6> :  <h6 
+          className="text-danger">Sorry ! product is out of stock</h6>
+           }
+          </div>
+
           <div className="my-4 d-flex align-items-center justify-content-center text-center">
             <label className="mx-2">Enter Quantity of product</label>
             <input
@@ -144,20 +153,23 @@ const Display_info = () => {
 
           <div className="text-center column">
             <Link to="/address">
-              <button
-                onClick={() =>
-                  dispatch(
-                    setProduct_details({
-                      ...product,
-                      quantity: quantity,
-                      size: selectedSize,
-                    })
-                  )
-                }
-                className="px-5 py-1 bg-dark rounded text-white"
-              >
-                Buy Now
-              </button>
+              {
+                isinstock && (<> <button
+               
+                  onClick={() =>
+                    dispatch(
+                      setProduct_details({
+                        ...product,
+                        quantity: quantity,
+                        size: selectedSize,
+                      })
+                    )
+                  }
+                  className="px-5 py-1 bg-dark rounded text-white"
+                >
+                  Buy Now
+                </button></>)
+              }
             </Link>
           </div>
 

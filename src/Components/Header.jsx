@@ -98,11 +98,11 @@ const Header = () => {
                         Returns and Orders
                       </Dropdown.Item>
                       <Dropdown.Item href="#/action-3">
-                        Log Out
+                        Cart
                       </Dropdown.Item>
                       <Dropdown.Divider />
                       <Dropdown.Item href="#/action-4">
-                        Unkown action
+                        Log Out
                       </Dropdown.Item>
                     </Dropdown.Menu>
                   </Dropdown>
