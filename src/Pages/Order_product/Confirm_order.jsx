@@ -58,7 +58,8 @@ const Confirm_order = () => {
             </div>
           </Col>
           <Col className="my-auto">
-            <img src={shoe} alt="shoe-image" className="img-fluid my-auto" />
+            <img src={product.imageURL} alt="shoe-image" className="img-fluid my-auto" 
+            style={{height:"30vh",width:"400px",maxHeight:"35vh",maxWidth:"500px"}} />
           </Col>
           <Col>
           <div className="text-center">

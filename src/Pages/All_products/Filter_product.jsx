@@ -59,7 +59,7 @@ const Filter_product = () => {
                 <Form.Range
                   value={maxValue}
                   onChange={handleRangeChange}
-                  max={800}
+                  max={10000}
                 />
               </div>
             </Form>

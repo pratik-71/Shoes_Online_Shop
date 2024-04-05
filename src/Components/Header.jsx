@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 import shoe_logo from "../../src/Assets/Navbar/Shoe_logo.jpg";
 import "../../src/Styles/Header_css.css";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
   let isAuthenticated = false;
@@ -70,10 +70,14 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                  <i
+                
+                
+                 <i
                     className="bi bi-bag mx-2 cursor-pointer "
                     style={{ fontSize: "25px", cursor: "pointer" }}
                   ></i>
+                 
+               
                  
                  <Dropdown drop="down" align="end" classN>
                     <Dropdown.Toggle
@@ -91,13 +95,13 @@ const Header = () => {
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu >
-                      <Dropdown.Item href="#/action-1">
+                      <Dropdown.Item href="/Profile/Account">
                         My Account
                       </Dropdown.Item>
-                      <Dropdown.Item href="#/action-2">
+                      <Dropdown.Item href="/Profile/Returns_order">
                         Returns and Orders
                       </Dropdown.Item>
-                      <Dropdown.Item href="#/action-3">
+                      <Dropdown.Item href="/Profile/Cart">
                         Cart
                       </Dropdown.Item>
                       <Dropdown.Divider />

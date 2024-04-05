@@ -31,8 +31,7 @@ function App() {
     <Route path='/Update_product/:id' element={<Update_product/>}></Route>
     <Route path='/Order' element={<Confirm_order/>}></Route>
     <Route path='/Order_placed' element={<Order_placed/>}></Route>
-    <Route path='/Account' element={<Account_skeleton/>}></Route>
-    <Route path='/Account' element={<Account_skeleton/>}></Route>
+    <Route path='/profile/:param' element={<Account_skeleton/>}></Route>
   </Routes>
   </BrowserRouter>
   </>

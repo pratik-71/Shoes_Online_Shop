@@ -17,22 +17,23 @@ const Shoe_card = ({ selected_category,display_number }) => {
 
 
   useEffect(() => {
-    const get_products = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:3001/products/all_product"
-        );
-        if (response) {
-          dispatch(setProducts(response.data));
-        }
-      } catch (error) {
-        console.log(error);
-      } finally {
-        setLoading(false);
-      }
-    };
     get_products();
   }, []);
+
+  const get_products = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:3001/products/all_product"
+      );
+      if (response) {
+        dispatch(setProducts(response.data));
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
 
 
@@ -58,6 +59,20 @@ const Shoe_card = ({ selected_category,display_number }) => {
       
     }
   }
+
+  const handle_delete = async (id) => {
+    console.log(id);
+    try {
+      const response =  await axios.delete("http://localhost:3001/products/delete_product", {
+            data: { product: id } 
+        }); 
+        if(response){
+          get_products()
+        }
+    } catch (error) {
+        console.log(error);
+    }
+}
 
   // -------------- Filter product categories ----------------
   let filtered_products =
@@ -107,9 +122,9 @@ const Shoe_card = ({ selected_category,display_number }) => {
                   <button className=" px-3 py-1 my-2 mx-1 bg-warning text-black">Modify</button>
                   </Link>
                  
-                  <Link>
-                    <button  className=" px-3 py-1 my-2 mx-1  bg-danger">Delete</button>
-                  </Link>
+                  
+                    <button onClick={()=>handle_delete(item._id)}  className=" px-3 py-1 my-2 mx-1  bg-danger">Delete</button>
+                  
 
                 </div>
               </Card.Body>
