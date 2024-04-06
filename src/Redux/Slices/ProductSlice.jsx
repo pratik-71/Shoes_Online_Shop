@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     products : [],
     product_details : null,
+    
 }
 
 let defaultproducts = []

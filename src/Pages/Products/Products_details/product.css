@@ -57,3 +57,7 @@
     height: 25vh; 
     border-radius: 10px;
   }
+  .show_review{
+    max-height: 60vh;
+    overflow: scroll;
+  }

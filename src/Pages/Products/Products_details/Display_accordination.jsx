@@ -1,7 +1,35 @@
-import React from "react";
+import axios  from "axios";
+import React, { useEffect, useState } from "react";
 import { Accordion, Button } from "react-bootstrap";
+import { useParams } from "react-router-dom";
 
 const Display_accordination = () => {
+  const { id } = useParams();
+  const [review,setreview] = useState([])
+
+
+  const get_review = async () => {
+    try {
+      const response = await axios.get("http://localhost:3001/products/get_review", {
+        params: { product_id: id }
+      });
+      if (!response.data) {
+        console.log("No data found in the response");
+      } else {
+        console.log("Reviews retrieved successfully:", response.data);
+        setreview(response.data.reviews);
+      }
+    } catch (error) {
+      console.error("Error fetching reviews:", error);
+    }
+  };
+  
+
+  useEffect(() => {
+    get_review();
+  }, []);
+
+
   return (
     <>
       <Accordion defaultActiveKey="0" flush className="my-1">
@@ -40,11 +68,32 @@ const Display_accordination = () => {
           </Accordion.Body>
         </Accordion.Item>
         <Accordion.Item eventKey="3">
-          <Accordion.Header>Reviews</Accordion.Header>
-          <Accordion.Body>
-          
-          </Accordion.Body>
-        </Accordion.Item>
+  <Accordion.Header>Reviews</Accordion.Header>
+  <Accordion.Body>
+    <div className="show_review">
+      {review.length === 0 ? (
+        <p>No reviews available</p>
+      ) : (
+        review.map((data, index) => (
+          <div key={index} className="d-flex flex-column review_card flex-column">
+            <div>
+              {[...Array(data.rating)].map((_, i) => (
+                <i key={i} className="bi bi-star-fill" style={{ color: "gold" }}></i>
+              ))}
+              {[...Array(5 - data.rating)].map((_, i) => (
+                <i key={i + data.rating} className="bi bi-star" style={{ color: "gold" }}></i>
+              ))}
+            </div>
+            <div>
+              <p className="px-3">{data.review}</p>
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+  </Accordion.Body>
+</Accordion.Item>
+
       </Accordion>
     </>
   );

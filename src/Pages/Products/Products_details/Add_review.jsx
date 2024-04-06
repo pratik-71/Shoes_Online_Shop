@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Button, Col, Container, Form, Modal, Row } from "react-bootstrap";
+import { Button, Container, Form, Modal, Row } from "react-bootstrap";
+import { useForm } from "react-hook-form";
+import { useParams } from "react-router-dom";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import axios from "axios";
 
-const Add_review = () => {
+const AddReview = () => {
+  const { register, handleSubmit, formState: { errors } } = useForm();
   const [show, setShow] = useState(false);
   const [rating, setRating] = useState(0);
+  const {id} = useParams()
 
   const handleStarClick = (star) => setRating(star);
   const handleClose = () => {
@@ -12,6 +17,25 @@ const Add_review = () => {
     setRating(0);
   };
   const handleShow = () => setShow(true);
+
+  const onSubmit = async (formData) => {
+    try {
+      const jwttoken = localStorage.getItem("Auth-Token")
+      const response = axios.post("http://localhost:3001/products/add_review",{
+        
+        product_id:id,
+        review:formData.review,
+        star:rating
+      },{
+        headers:{
+          "X-Auth-Token" : jwttoken
+        }
+      })
+    } catch (error) {
+      
+    }
+    handleClose();
+  };
 
   const renderStars = () => {
     const stars = [];
@@ -64,7 +88,6 @@ const Add_review = () => {
             onClick={handleShow}
             className="text-center rounded bg-primary text-white border-0 my-4 py-1"
           >
-            {" "}
             Add Review
           </button>
         </Row>
@@ -75,34 +98,36 @@ const Add_review = () => {
           <Modal.Title>Add Review</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={handleSubmit(onSubmit)}>
             <Form.Group className="mb-3">
               <Form.Label>Rating</Form.Label>
               <div>{renderStars()}</div>
             </Form.Group>
-            <Form.Group
-              className="mb-3"
-              controlId="exampleForm.ControlTextarea1"
-            >
+            <Form.Group className="mb-3">
+              <Form.Label>Review</Form.Label>
               <Form.Control
                 as="textarea"
                 placeholder="Add Review here"
+                {...register("review", { required: true })}
                 rows={3}
               />
+              {errors.review && <span>This field is required</span>}
             </Form.Group>
-          </Form>
-        </Modal.Body>
-        <Modal.Footer className="d-flex justify-content-between mx-3">
-          <Button className="bg-danger border-0" onClick={handleClose}>
+           <div className="d-flex justify-content-between align-items-center">
+           <Button className="bg-danger border-0" onClick={handleClose}>
             Close
           </Button>
-          <Button className="bg-success " onClick={handleClose}>
-            Submit
-          </Button>
-        </Modal.Footer>
+            <Button className="bg-success" type="submit">
+              Submit
+            </Button>
+           </div>
+          </Form>
+          
+        </Modal.Body>
+        
       </Modal>
     </>
   );
 };
 
-export default Add_review;
+export default AddReview;

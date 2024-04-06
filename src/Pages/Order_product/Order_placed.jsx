@@ -66,7 +66,7 @@ const Order_placed = () => {
       </Row>
       <Row>
       <div className='text-center'> 
-             <Link to="/products">
+             <Link to="/products/All">
              <button className='px-5 py-2 bg-warning rounded border-0 my-2'>Explore More</button>
              </Link>
           </div>
@@ -87,7 +87,7 @@ const Order_placed = () => {
       </Row>
       <Row>
       <div className='text-center'> 
-             <Link to="/products">
+             <Link to="/products/All">
              <button className='px-5 py-2 bg-warning rounded border-0 my-2'>Shop More</button>
              </Link>
           </div>
