@@ -76,6 +76,7 @@ const Display_accordination = () => {
       ) : (
         review.map((data, index) => (
           <div key={index} className="d-flex flex-column review_card flex-column">
+            <div><h6>{data.name}</h6></div>
             <div>
               {[...Array(data.rating)].map((_, i) => (
                 <i key={i} className="bi bi-star-fill" style={{ color: "gold" }}></i>
@@ -87,7 +88,9 @@ const Display_accordination = () => {
             <div>
               <p className="px-3">{data.review}</p>
             </div>
+            <hr></hr>
           </div>
+
         ))
       )}
     </div>
