@@ -8,6 +8,9 @@ import { useSelector } from "react-redux";
 const Display_other_shoe = () => {
   const category =  useSelector((state) => state.products.product_details);
   const allProducts = useSelector((state) => state.products.products);
+console.log("all producccccccccccts")
+console.log(allProducts)
+  
   
   const filteredProducts = category 
     ? allProducts.filter((data) => data.category === category.category) 

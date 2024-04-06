@@ -16,7 +16,7 @@ const Header = () => {
         <Navbar
           collapseOnSelect
           expand="lg"
-          className="my-custom-container"
+          className="my-custom-container d-flex align-items-center"
         >
           <Container fluid={true}>
             <div className="d-flex align-items-center justify-content-between">
@@ -28,13 +28,19 @@ const Header = () => {
               className="order-2 mx-2"
             />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mx-auto">
+              <Nav className="mx-auto d-flex align-items-center">
                 <Nav.Link href="/">HOME</Nav.Link>
-                <Nav.Link href="/special_edition">SPECIAL-EDITION</Nav.Link>
-                <Nav.Link href="/Products">PREMIUM</Nav.Link>
-                <Nav.Link href="/Products">MEN</Nav.Link>
-                <Nav.Link href="/Products">WOMEN</Nav.Link>
-                <Nav.Link href="/Products">KIDS</Nav.Link>
+                <Nav.Link href="/Products/All">SHOP</Nav.Link>
+                <Nav.Link href="/Products/Special Edition">SPECIAL-EDITION</Nav.Link>
+                <Nav.Link href="/Products/premium">PREMIUM</Nav.Link>
+                <Nav.Link href="/Products/Jordan">MEN</Nav.Link>
+                <Nav.Link href="/Products/Women High Heel">WOMEN</Nav.Link>
+                <Nav.Link href="/Profile/Cart"> <i
+                    className="bi bi-bag mx-2 cursor-pointer "
+                    style={{ fontSize: "25px", cursor: "pointer" }}
+                  ></i>
+                 
+               </Nav.Link>
               </Nav>
             </Navbar.Collapse>
 
@@ -70,14 +76,6 @@ const Header = () => {
                 </>
               ) : (
                 <>
-                
-                
-                 <i
-                    className="bi bi-bag mx-2 cursor-pointer "
-                    style={{ fontSize: "25px", cursor: "pointer" }}
-                  ></i>
-                 
-               
                  
                  <Dropdown drop="down" align="end" classN>
                     <Dropdown.Toggle
@@ -89,7 +87,7 @@ const Header = () => {
                       style={{ backgroundColor: "transparent" }}
                     >
                       <div>
-                        <img src={image} className="rounded-circle my-auto"
+                        <img src={image} className="rounded-circle mx-1"
                          style={{ height: "7vh", border: "2px solid black" }} />
                       </div>
                     </Dropdown.Toggle>

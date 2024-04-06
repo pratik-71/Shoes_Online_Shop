@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Tab, Tabs } from "react-bootstrap";
-import shoe from "../../Assets/Section4_All_shoes/air/a_shoe3.png";
-import shoe2 from "../../Assets/Section4_All_shoes/air/a_shoe8.png";
 import "./Account_style.css";
+import { useDispatch } from "react-redux";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { setProduct_details } from "../../Redux/Slices/ProductSlice";
 
 const Returns_Order = () => {
-  
+   const dispatch = useDispatch()
    const [order,setorder] = useState([])
 
 
@@ -50,7 +51,7 @@ const Returns_Order = () => {
                   <div key={index} className="col-lg-3 mx-3 mb-4 return_order_card">
                     <div className="return_order_card-sm p-2">
                       <div className="delivery-info">
-                        <h6 className="text-center">To be delivered on {shoe.delievery_date}</h6>
+                       <h6 className="text-center">To be delivered on {shoe.delievery_date?.substring(0, 10)}</h6>
                         <hr />
                       </div>
                       <div className="product-info">
@@ -65,10 +66,15 @@ const Returns_Order = () => {
                         <div className="text-container text-center">
                           <h5>{shoe.title}</h5>
                           <h6>{shoe.price}$</h6>
+                          <h6>Quanity : {shoe.quantity}</h6>
                           <div className="button-container text-center">
+                          <Link to={`/product_details/${shoe.product}`}>
                             <button className="btn btn-primary mx-1 my-1">View Product</button>
+                            </Link>
+                          <Link to={`/product_details/${shoe.product}`} onClick={()=>dispatch(setProduct_details(shoe))}>
                             <button className="btn btn-secondary mx-1 my-1">Buy Again</button>
-                            <button className="btn btn-danger mx-1 my-1">Cancel Order</button>
+                            </Link>  
+                            <button className="btn bg-danger mx-1 my-1">Cancel Order</button>
                           </div>
                         </div>
                       </div>

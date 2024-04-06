@@ -12,7 +12,7 @@ const Section4 = () => {
   const navigate = useNavigate();
 
   const redirect = () => {
-   navigate("/products")
+   navigate("/products/All")
   };
 
   return (

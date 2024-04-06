@@ -8,7 +8,6 @@ import axios from "axios";
 
 const Shoe_card = ({ selected_category,display_number }) => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
   const products = useSelector((state) => state.products.products);
   const [loading, setLoading] = useState(true);
 
@@ -107,7 +106,7 @@ const Shoe_card = ({ selected_category,display_number }) => {
               <Card.Body className="text-center">
                 <Card.Title>{item.title}</Card.Title>
                 <Card.Text>
-                  <strong>{item.price}</strong>
+                  <strong>Rs. {item.price}</strong>
                 </Card.Text>
                 <div className="d-flex justify-content-center flex-wrap">
                   <Link to={`/product_details/${item._id}`}>

@@ -24,7 +24,7 @@ function App() {
     <Route path='special_edition' element={<Section2/>}></Route>
     <Route path='/Sign_in' element={<Sign_in/>}></Route>
     <Route path='/Sign_up' element={<Sign_Up/>}></Route>
-    <Route path='/products' element={<Products_skeleton/>}></Route>
+    <Route path='/products/:param' element={<Products_skeleton/>}></Route>
     <Route path='/product_details/:id' element={<Display_product/>}></Route>
     <Route path='/address' element={<Address_skeleton/>}></Route>
     <Route path='/Add_product' element={<Add_product/>}></Route>

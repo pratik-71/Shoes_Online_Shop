@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Air, Women, mercurial, premium } from "../../Data/Shoe_data";
 import Shoe_card from "../../Components/Shoe_card";
 import { Tab, Tabs } from "react-bootstrap";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 
 const Category_section = () => {
-
+   const {param} = useParams()
    const [categories,setcategories] = useState([])
    const default_category = useSelector((state)=>state.products.category)
    console.log(default_category)
@@ -29,7 +29,7 @@ useEffect(()=>{
   return (
     <div>
       <Tabs
-        defaultActiveKey={default_category}
+        defaultActiveKey={param}
         id="fill-tab-example"
         className="mb-3"
         fill
