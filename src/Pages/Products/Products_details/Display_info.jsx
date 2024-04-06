@@ -4,7 +4,7 @@ import "../Products_details/product.css";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
-import { setProduct_details } from "../../../Redux/Slices/ProductSlice";
+import { setProduct_details, setProduct_info } from "../../../Redux/Slices/ProductSlice";
 
 const Display_info = () => {
   const [selectedSize, setSelectedSize] = useState(6);
@@ -24,6 +24,7 @@ const Display_info = () => {
         console.log("no data found");
       }
       setproduct(response.data);
+      dispatch(setProduct_info(response.data))
       if(response.data.available_items<=0){setisinstock(false)}
     } catch (error) {
       console.log(error.messege);
