@@ -9,9 +9,30 @@ const Order = () => {
   const [order, setOrder] = useState([]);
   const dispatch = useDispatch();
 
-  const handleCancel = async (
+  const handleCancel = async (id) => {
+    const jwttoken = localStorage.getItem("Auth-Token");
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/products/cancel_order",{
+          product_id:id
+        },
+        {
+          headers: {
+            "X-Auth-Token": jwttoken,
+          },
+        }
+        
+      );
+      if (response) {
+        getOrder()
+      }
+    } catch (error) {
+      console.log(error);
+      setOrder([]);
+    }
+  };
 
-  ) => {};
+
 
   const getOrder = async () => {
     const jwttoken = localStorage.getItem("Auth-Token");
@@ -32,7 +53,7 @@ const Order = () => {
       }
     } catch (error) {
       console.log(error);
-      setOrder([]); // Set order to an empty array in case of error
+      setOrder([]);
     }
   };
 
@@ -85,7 +106,7 @@ const Order = () => {
                       </Link>
                       <button
                         className="btn bg-danger mx-1 my-1"
-                        onClick={() => handleCancel(shoe._id)}
+                        onClick={() => handleCancel(shoe.product)}
                       >
                         Cancel Order
                       </button>

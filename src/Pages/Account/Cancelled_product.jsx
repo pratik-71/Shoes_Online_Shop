@@ -41,10 +41,6 @@ const Cancelled_product = () => {
                         {order.map((shoe, index) => (
                             <div key={index} className="return_order_card_wrapper mx-4 my-4">
                                 <Row className="return_order_card p-2">
-                                    <h6 className="text-center">
-                                        Delivered on {shoe.delievery_date?.substring(0, 10)}
-                                    </h6>
-                                    <hr />
                                     <Row>
                                         <Col md={6} className="d-flex justify-content-center align-items-center">
                                             <img
@@ -55,18 +51,15 @@ const Cancelled_product = () => {
                                             />
                                         </Col>
                                         <Col md={6} className="text-center">
-                                            <h5>{shoe.title}</h5>
+                                            <h5 className='py-2'>{shoe.title}</h5>
                                             <h6>Rs. {shoe.price}</h6>
-                                            <h6>Quantity: {shoe.quantity}</h6>
+                                            <h6 className='py-2'>Quantity: {shoe.quantity}</h6>
                                             <div className="d-flex flex-column Return_order_btn">
                                                 <button className="px-1 py-1 rounded my-3 bg-primary border-0 text-white">
                                                     View Product
                                                 </button>
                                                 <button className="px-1 py-1 rounded bg-warning border-0 my-1">
                                                     Buy Again
-                                                </button>
-                                                <button className="px-1 py-1 rounded bg-danger border-0">
-                                                    Return Product
                                                 </button>
                                             </div>
                                         </Col>
