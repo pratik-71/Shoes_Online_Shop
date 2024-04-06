@@ -32,6 +32,8 @@ function App() {
     <Route path='/Order' element={<Confirm_order/>}></Route>
     <Route path='/Order_placed' element={<Order_placed/>}></Route>
     <Route path='/profile/:param' element={<Account_skeleton/>}></Route>
+    <Route path='/profile/Returns_order/:orderparam' element={<Account_skeleton/>}></Route>
+
   </Routes>
   </BrowserRouter>
   </>
