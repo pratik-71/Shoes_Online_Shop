@@ -36,8 +36,8 @@ const Section1 = () => {
                     unlocking your inner celestial elegance.
                   </p>
                   <p className="price">$20.17</p>
-                  <Link>
-                    <button className="px-4 py-2">Add to cart</button>
+                  <Link  to="/product_details/661289fedbe4ce59688fc234">
+                    <button className="px-4 py-2">Buy Now</button>
                   </Link>
                 </div>
               </Row>
@@ -55,7 +55,9 @@ const Section1 = () => {
                       <Card.Title>{shoe.title}</Card.Title>
                       <Card.Text >
                         {shoe.price}
+                        <Link to={`/product_details/${shoe.redirect_id}`}>
                         <button className="py-1 px-3 mx-2 bg-primary"><i class="bi bi-cart-fill mx-2"></i></button>
+                        </Link>
                       </Card.Text>
                     </Card.Body>
                   </Card>

@@ -33,7 +33,7 @@ const Add_product = () => {
         category:formData.ProductCategory,
         color:formData.Color,
         gender:formData.Gender,
-        Available_items:formData.Available_items
+        available_items:formData.Available_items
       })
       if(response){
           console.log(response.data)

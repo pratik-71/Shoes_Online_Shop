@@ -7,6 +7,7 @@ const promotion_shoes = [
     {
         id:1,
         image:shoe1,
+        redirect_id:"661289fedbe4ce59688fc234",
         title:"OXY JORDAN",
         price:"$16.78"
     },
@@ -14,12 +15,14 @@ const promotion_shoes = [
         id:2,
         image:shoe2,
         title:"OXY RUNNER",
+        redirect_id:"66128ab3dbe4ce59688fc239",
         price:"$15.78" 
     },
     {
         id:3,
         image:shoe3,
-        title:"OXY SOFT",
+        title:"OXY PRIME",
+        redirect_id:"66128a51dbe4ce59688fc237",
         price:"$19.78"
     }
 ]
