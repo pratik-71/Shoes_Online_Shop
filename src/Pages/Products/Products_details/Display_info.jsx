@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import "../Products_details/product.css";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { setProduct_details, setProduct_info } from "../../../Redux/Slices/ProductSlice";
@@ -13,7 +13,32 @@ const Display_info = () => {
   const [isinstock,setisinstock] = useState(true)
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(id);
+  const navigate = useNavigate()
+
+
+  const handle_add_cart=(item)=>{
+    const jwttoken = localStorage.getItem("Auth-Token")
+    try {
+       console.log(item._id)
+      const response = axios.post("http://localhost:3001/products/add_cart",{
+        product : item._id,
+        imageURL:item.imageURL,
+        title:item.title,
+        price:item.price
+      },{
+        headers:{
+          "X-Auth-Token": jwttoken
+        }
+      })
+
+      if(response){
+        console.log("item added succesfully")
+        navigate("/Profile/Cart")
+      }
+    } catch (error) {
+      
+    }
+  }
 
   const get_product = async () => {
     try {
@@ -175,7 +200,7 @@ const Display_info = () => {
           </div>
 
           <div className="text-center">
-            <button className="px-4 py-1 border-1 rounded my-3">
+            <button onClick={()=>handle_add_cart(product)} className="px-4 py-1 border-1 rounded my-3">
               Add to Cart
             </button>
           </div>

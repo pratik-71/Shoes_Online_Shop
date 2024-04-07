@@ -63,9 +63,7 @@ const Delivered_products = () => {
                       <button className="px-1 py-1 rounded bg-warning border-0 my-1">
                         Buy Again
                       </button>
-                      <button className="px-1 py-1 rounded bg-danger border-0">
-                        Return Product
-                      </button>
+                    
                     </div>
                   </Col>
                 </Row>

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Button, Card, Container, Image, Row } from "react-bootstrap";
+import { Card, Container } from "react-bootstrap";
 import "../../src/Styles/Home_Section.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { setProduct_details, setProducts } from "../Redux/Slices/ProductSlice";
+import { setProducts } from "../Redux/Slices/ProductSlice";
 import axios from "axios";
 
 const Shoe_card = ({ selected_category,display_number }) => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products.products);
   const [loading, setLoading] = useState(true);
-
+  const navigate = useNavigate()
   // ------------ get all products ---------------
 
 
@@ -36,11 +36,11 @@ const Shoe_card = ({ selected_category,display_number }) => {
 
 
 
-  const handle_add_cart=(item)=>{
+  const handle_add_cart=async(item)=>{
     const jwttoken = localStorage.getItem("Auth-Token")
     try {
        console.log(item._id)
-      const response = axios.post("http://localhost:3001/products/add_cart",{
+      const response = await axios.post("http://localhost:3001/products/add_cart",{
         product : item._id,
         imageURL:item.imageURL,
         title:item.title,
@@ -53,6 +53,7 @@ const Shoe_card = ({ selected_category,display_number }) => {
 
       if(response){
         console.log("item added succesfully")
+        navigate("/Profile/Cart")
       }
     } catch (error) {
       

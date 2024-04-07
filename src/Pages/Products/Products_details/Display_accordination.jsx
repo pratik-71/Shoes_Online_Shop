@@ -15,10 +15,10 @@ const Display_accordination = () => {
               <strong>Category : </strong> OXY Air{" "}
             </p>
             <p>
-              <strong>Material Used : </strong> 100% Lether{" "}
+              <strong>Material Used : </strong> 100% Leather{" "}
             </p>
             <p>
-              <strong>Marketed by : </strong> OXY global marketting co.{" "}
+              <strong>Marketed by : </strong> OXY global marketing co.{" "}
             </p>
             <p>
               <strong>Manufactured in : </strong> India Maharashtra varoli
@@ -58,7 +58,7 @@ const Display_accordination = () => {
           <Accordion.Header>Reviews</Accordion.Header>
           <Accordion.Body>
             <div className="show_review">
-              {productInfo.reviews && productInfo.reviews.length > 0 ? (
+              {productInfo && productInfo.reviews && productInfo.reviews.length > 0 ? (
                 productInfo.reviews.map((review, index) => (
                   <div
                     key={index}

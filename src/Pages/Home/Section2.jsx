@@ -5,6 +5,7 @@ import coursal from "../../Data/Coursal_section_2";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../../Styles/Home_Section.css";
+import { Link } from "react-router-dom";
 
 const Section2 = () => {
   const responsive = {
@@ -49,16 +50,13 @@ const Section2 = () => {
               <Card>
                 <img src={data.image} className="img_holder" style={{height:"50vh"}} />
                 <Card.Body>
-                  <Card.Title className="info_info_section">{data.title} 
-                  <p className="mx-2">{data.price}</p></Card.Title>
+                  <Card.Title className="info_info_section">{data.title} </Card.Title>
                  
                   <div className="info_btn_section">
-                    <button className="py-1 px-3 mx-2 info-btn">
-                      Buy Now
-                    </button>
-                    <button className="py-1 px-3 mx-2 info-btn">
-                      Add to Cart
-                    </button>
+                  <Link to={`/product_details/${data.redirect_id}`}>
+  <button className="py-1 px-3 mx-2 info-btn">Buy Now</button>
+</Link>
+
                   </div>
                 </Card.Body>
               </Card>

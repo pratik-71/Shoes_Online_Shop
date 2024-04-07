@@ -12,6 +12,7 @@ import Update_product from './Pages/Admin/Update_product';
 import Confirm_order from './Pages/Order_product/Confirm_order';
 import Account_skeleton from './Pages/Account/Account_skeleton';
 import Order_placed from './Pages/Order_product/Order_placed';
+import Not_found from './Components/Not_found';
 
 
 
@@ -33,7 +34,7 @@ function App() {
     <Route path='/Order_placed' element={<Order_placed/>}></Route>
     <Route path='/profile/:param' element={<Account_skeleton/>}></Route>
     <Route path='/profile/Returns_order/:orderparam' element={<Account_skeleton/>}></Route>
-
+    <Route path='*' element={<Not_found/>}></Route>
   </Routes>
   </BrowserRouter>
   </>

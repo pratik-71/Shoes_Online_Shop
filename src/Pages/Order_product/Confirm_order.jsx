@@ -1,6 +1,5 @@
 import React from 'react'
 import { Col, Container, Row, Table } from 'react-bootstrap'
-import shoe from "../../Assets/Section4_All_shoes/air/a_shoe8.png";
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 

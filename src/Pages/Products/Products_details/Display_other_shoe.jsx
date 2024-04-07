@@ -4,19 +4,15 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import "../Products_details/product.css";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Display_other_shoe = () => {
-  const category =  useSelector((state) => state.products.product_details);
+  const category = useSelector((state) => state.products.product_details);
   const allProducts = useSelector((state) => state.products.products);
-console.log("all producccccccccccts")
-console.log(allProducts)
-  
-  
-  const filteredProducts = category 
-    ? allProducts.filter((data) => data.category === category.category) 
+
+  const filteredProducts = category
+    ? allProducts.filter((data) => data.category === category.category)
     : allProducts;
-   
-    
 
   const responsive = {
     superLargeDesktop: {
@@ -38,31 +34,39 @@ console.log(allProducts)
     small_mobile: {
       breakpoint: { max: 516, min: 0 },
       items: 1,
-    }
+    },
   };
 
   return (
     <>
-       <section className="my-5" >
+      <section className="my-5">
         <Container>
           <div className="title">
             <h5 className="text-center"> You many also like </h5>
             <hr />
           </div>
           <div className="p-3 coursal_box ">
-            <Carousel 
+            <Carousel
               responsive={responsive}
               infinite={true}
               customTransition="transform 500ms ease-in-out"
             >
               {filteredProducts.map((data, index) => (
-                <div className="edition_card " key={index}>
-                  <Card>
-                    <img src={data.imageURL} className="img_holder" alt="Product" />
-                    <Card.Body className="card-body">
-                      <Card.Title className="info_info_section">{data.price}.00$ </Card.Title>
-                    </Card.Body>
-                  </Card>
+                <div className="edition_card" key={index}>
+                   <Link to={`/product_details/${data._id}`}>
+                    <Card>
+                      <img
+                        src={data.imageURL}
+                        className="img_holder"
+                        alt="Product"
+                      />
+                      <Card.Body>
+                        <Card.Title className="info_info_section">
+                          {data.price}.00$
+                        </Card.Title>
+                      </Card.Body>
+                    </Card>
+                  </Link>
                 </div>
               ))}
             </Carousel>
@@ -70,14 +74,14 @@ console.log(allProducts)
         </Container>
       </section>
 
-      <section className="my-5" >
+      <section className="my-5">
         <Container>
           <div className="title">
             <h5> Explore in different category </h5>
             <hr />
           </div>
           <div className="p-3 coursal_box">
-            <Carousel 
+            <Carousel
               responsive={responsive}
               infinite={true}
               customTransition="transform 500ms ease-in-out"
@@ -85,9 +89,15 @@ console.log(allProducts)
               {filteredProducts.map((data, index) => (
                 <div className="edition_card" key={index}>
                   <Card>
-                    <img src={data.imageURL} className="img_holder" alt="Product" />
+                    <img
+                      src={data.imageURL}
+                      className="img_holder"
+                      alt="Product"
+                    />
                     <Card.Body>
-                      <Card.Title className="info_info_section">{data.price}.00$ </Card.Title>
+                      <Card.Title className="info_info_section">
+                        {data.price}.00${" "}
+                      </Card.Title>
                     </Card.Body>
                   </Card>
                 </div>
