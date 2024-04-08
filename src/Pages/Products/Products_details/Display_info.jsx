@@ -16,11 +16,11 @@ const Display_info = () => {
   const navigate = useNavigate()
 
 
-  const handle_add_cart=(item)=>{
+  const handle_add_cart=async(item)=>{
     const jwttoken = localStorage.getItem("Auth-Token")
     try {
        console.log(item._id)
-      const response = axios.post("http://localhost:3001/products/add_cart",{
+      const response =await axios.post("http://localhost:3001/products/add_cart",{
         product : item._id,
         imageURL:item.imageURL,
         title:item.title,
