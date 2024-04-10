@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
     old_addresses : [],
-    selected_address : {}
+    selected_address : {},
+    isAuthenticated : false
 }
 
 const AddressSlice = createSlice({
@@ -15,9 +16,9 @@ const AddressSlice = createSlice({
         setSelectedAddress : (state,action)=>{
             console.log(state.selected_address)
             state.selected_address = action.payload
-        }
+        },
     }
 });
 
-export const { setOldAddress, setSelectedAddress } = AddressSlice.actions;
+export const { setOldAddress, setSelectedAddress} = AddressSlice.actions;
 export default AddressSlice.reducer;

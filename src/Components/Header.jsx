@@ -4,10 +4,10 @@ import Container from "react-bootstrap/Container";
 
 import shoe_logo from "../../src/Assets/Navbar/Shoe_logo.jpg";
 import "../../src/Styles/Header_css.css";
-import { Link, NavLink } from "react-router-dom";
+import {useSelector} from "react-redux"
 
 const Header = () => {
-  let isAuthenticated = true;
+  let isAuthenticated = useSelector((state)=>state.auth.isAuthenticated)
   let image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQgb-mKD-mTbsShRj58zdW2EimNjZdJWoB-tpvPFAozBo0s50e3bmOkEu93H6YWvrFGiE&usqp=CAU"
 
   return (
@@ -32,7 +32,7 @@ const Header = () => {
               className="order-2 mx-2 "
             />
             <Navbar.Collapse id="responsive-navbar-nav mid-nav-box">
-              <Nav className="mx-auto ">
+              <Nav className="mx-auto d-flex align-items-center ">
                 <Nav.Link href="/">HOME</Nav.Link>
                 <Nav.Link href="/Products/All">SHOP</Nav.Link>
                 <Nav.Link href="/Products/Special Edition">SPECIAL-EDITION</Nav.Link>
@@ -82,7 +82,7 @@ const Header = () => {
             </Form>
 
             <Nav className="d-flex align-items-center">
-              {isAuthenticated ? (
+              {!isAuthenticated ? (
                 <>
                 <div className="login-btns ">
                 <Nav.Link href="/Sign_in">

@@ -3,12 +3,15 @@ import React, { useState } from "react";
 import { Col, Container, Form, Row } from "react-bootstrap";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
+import {useDispatch } from "react-redux"
+import { setIsAuthenticated } from "../../Redux/Slices/AuthSlice";
+
 
 const Sign_in = () => {
 
   const [error_messege , seterror_messege] = useState("")
-  const {register,handleSubmit,formState:{errors},watch} = useForm()
-  const Password = watch("Password")
+  const {register,handleSubmit,formState:{errors}} = useForm()
+  const dispatch = useDispatch()
   const navigate = useNavigate()
   
   const send_form_data = async(formData) => { 
@@ -20,10 +23,14 @@ const Sign_in = () => {
       if(response){
         const token = response.headers["x-auth-token"];
         localStorage.setItem('Auth-Token', token); 
-        navigate("/products")
+        dispatch(setIsAuthenticated(response.data.isAuthenticated))
+        navigate("/products/All")
+      }
+      if(!response){
+        seterror_messege(response.error)
       }
     } catch (error) {
-      console.log(error.message)
+      seterror_messege(error.message)
     }
   }
 
@@ -128,6 +135,7 @@ const Sign_in = () => {
             
           </Col>
         </Row>
+        <p className="text-center">{error_messege}</p>
       </Container>
     </>
   );
