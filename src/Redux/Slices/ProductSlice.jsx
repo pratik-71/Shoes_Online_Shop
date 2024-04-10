@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
     products : [],
     product_details : null,
-    product_info : null
+    product_info : null,
+    category:"All"
 }
 
 let defaultproducts = []
@@ -19,6 +20,9 @@ const ProductSlice = createSlice({
     setProduct_details : (state,action)=>{
         state.product_details = action.payload
         
+    },
+    setCategory:(state,action)=>{
+        state.category = action.payload;
     },
     setProduct_info:(state,action)=>{
         state.product_info = action.payload

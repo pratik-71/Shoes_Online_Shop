@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Section4 = () => {
   const navigate = useNavigate();
-
+  
   const redirect = () => {
    navigate("/products/All")
   };
@@ -24,7 +24,7 @@ const Section4 = () => {
           fill
         >
           <Tab eventKey="Men" title="Men">
-            <Shoe_card  selected_category={"All"} display_number={8}/> 
+            <Shoe_card  display_number={8}/> 
           </Tab>
           <Tab eventKey="Women" title="Women Wear" ob>
             <Shoe_card  />

@@ -31,5 +31,19 @@
   box-sizing: border-box;
 }
 
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: 80px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: #000 #0000;
+  animation: l1 1s infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@keyframes l1 {to{transform: rotate(.5turn)}}
 
 

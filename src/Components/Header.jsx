@@ -7,7 +7,7 @@ import "../../src/Styles/Header_css.css";
 import { Link, NavLink } from "react-router-dom";
 
 const Header = () => {
-  let isAuthenticated = false;
+  let isAuthenticated = true;
   let image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQgb-mKD-mTbsShRj58zdW2EimNjZdJWoB-tpvPFAozBo0s50e3bmOkEu93H6YWvrFGiE&usqp=CAU"
 
   return (
@@ -16,19 +16,23 @@ const Header = () => {
         <Navbar
           collapseOnSelect
           expand="lg"
-          className="my-custom-container d-flex align-items-center"
+          className="my-custom-container f-flex align-items-center justify-content-between"
         >
           <Container fluid={true}>
-            <div className="d-flex align-items-center justify-content-between">
+            <div className="d-flex align-items-center justify-content">
               <img src={shoe_logo} alt="Shoe_logo" className="logo img-fluid" />
-              <h2>OXY</h2>
+              <h2 className="Oxy-name">OXY</h2>
             </div>
+
+
+
+            <div className="mid-container">
             <Navbar.Toggle
               aria-controls="responsive-navbar-nav"
-              className="order-2 mx-2"
+              className="order-2 mx-2 "
             />
-            <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav className="mx-auto d-flex align-items-center">
+            <Navbar.Collapse id="responsive-navbar-nav mid-nav-box">
+              <Nav className="mx-auto ">
                 <Nav.Link href="/">HOME</Nav.Link>
                 <Nav.Link href="/Products/All">SHOP</Nav.Link>
                 <Nav.Link href="/Products/Special Edition">SPECIAL-EDITION</Nav.Link>
@@ -41,16 +45,29 @@ const Header = () => {
                   ></i>
                  
                </Nav.Link>
+               <div className="login-btns-center ">
+                <Nav.Link href="/Sign_in">
+                    <button className="px-3 py-1 btn">Sign-In</button>
+                  </Nav.Link>
+                  <Nav.Link href="/Sign_up">
+                    <button className=" px-3 py-1 btn ">Sign-Up</button>
+                  </Nav.Link>
+                </div>
               </Nav>
             </Navbar.Collapse>
+            </div>
 
+
+
+              
+             <div className="d-flex">
             <Form className="d-flex align-items-center">
               <div className="input-group">
                 <input
                   type="text"
                   rounded
                   placeholder="Search"
-                  className="form-control search-input b-0"
+                  className="form-control search-input  b-0"
                   aria-label="Search"
                   aria-describedby="button-addon2"
                 />
@@ -67,12 +84,15 @@ const Header = () => {
             <Nav className="d-flex align-items-center">
               {isAuthenticated ? (
                 <>
-                  <Nav.Link href="/Sign_in">
+                <div className="login-btns ">
+                <Nav.Link href="/Sign_in">
                     <button className="px-3 py-1 btn">Sign-In</button>
                   </Nav.Link>
                   <Nav.Link href="/Sign_up">
-                    <button className="px-3 py-1 btn ">Sign-Up</button>
+                    <button className=" px-3 py-1 btn ">Sign-Up</button>
                   </Nav.Link>
+                </div>
+                
                 </>
               ) : (
                 <>
@@ -111,6 +131,7 @@ const Header = () => {
                 </>
               )}
             </Nav>
+            </div> 
           </Container>
         </Navbar>
       </header>

@@ -38,6 +38,12 @@ header .nav-link button:hover{
 
 
 }
+
+.mid-nav-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .dropdown-toggle {
   outline: none;
   box-shadow: none;
@@ -64,6 +70,13 @@ header .nav-link button:hover{
    border: 2px solid ;
   }
 
+  .login-btns{
+    display: flex;
+  }
+  .login-btns-center{
+    display: none;
+  }
+
   .search-input {
     outline: none; 
     border-radius: 20px;
@@ -72,25 +85,93 @@ header .nav-link button:hover{
    box-shadow:  none!important;
     
 }
+
+
+
+
+
+
 /* Move sign-in button inside toggle button on small screens */
 @media (max-width: 767px) {
-    .navbar-nav {
+  .navbar-nav {
+      position: fixed;
+      bottom: 100px; 
+      left: 0; 
+      width: 50%; 
+      max-height: 90vh; 
+      overflow-y: auto; 
+      background-color: #ffffff; 
+      box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+      z-index: 1000; 
+      text-align: center; 
+  }
+
+  .navbar-nav .nav-item {
+      margin: 10px 0;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+      padding: 10px;
+      text-align: center;
+  }
+
+  .navbar-toggler + .navbar-collapse .navbar-nav {
+      width: 100%;
+      justify-content: center;
+      flex-direction: column; 
+  }
+
+  .search-input {
+      width: 20px;
+  }
+
+  header .logo {
+      height: auto;
+      width: 50px;
+  }
+
+  .Oxy-name {
+      font-size: 25px;
+  }
+
+  .login-btn {
+      font-size: 10px;
+      background-color: red;
+      display: none;
+  }
+
+  .login-btns {
+      display: none;
+  }
+
+  .login-btns-center {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .mid-container {
+      order: 2;
+  }
+
+  .search-input {
+      width: 20px;
+  }
+
+  .mid-container {
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      width: 20px;
+  }
+
+  .mid-nav-box {
+      background-color: rgb(52, 50, 50);
       display: flex;
       flex-direction: column;
       align-items: center;
-    }
-  
-    .navbar-nav .nav-item {
-      margin: 10px 0;
-    }
-  
-    .navbar-nav .nav-item .nav-link {
-      padding: 10px;
-      text-align: center;
-    }
-  
-    .navbar-toggler + .navbar-collapse .navbar-nav {
-      margin-top: auto;
-    }
+      float: right;
+      background-color: black;
+      justify-content: center;
+      color:white;
   }
-  
+}

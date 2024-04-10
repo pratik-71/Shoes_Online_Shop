@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import Shoe_card from "../../Components/Shoe_card";
 import { Tab, Tabs } from "react-bootstrap";
 import axios from "axios";
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams,useNavigate} from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
+import { setCategory } from "../../Redux/Slices/ProductSlice";
 
 const Category_section = () => {
    const {param} = useParams()
    const [categories,setcategories] = useState([])
    const [activeTab, setActiveTab] = useState(param);
    const navigate = useNavigate()
+   const dispatch = useDispatch()
 
    const handleTabSelect = (eventKey) => {
-      navigate(`/products/${eventKey}`);
       setActiveTab(eventKey);
+      dispatch(setCategory(activeTab))
+      navigate(`/products/${eventKey}`);
+      
     };
 
 
