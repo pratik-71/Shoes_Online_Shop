@@ -21,7 +21,8 @@ const Shoe_card = ({ display_number }) => {
     get_products(param);
   }, [param]);
 
-  const get_products = async () => {
+
+  const get_products = async (category) => {
     try {
       const response = await axios.get(
         `http://localhost:3001/products/all_product/${category}`

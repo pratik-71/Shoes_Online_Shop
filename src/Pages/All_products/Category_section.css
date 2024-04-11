@@ -1,0 +1,27 @@
+.filter-category{
+  display: block;
+}
+.filter-category-mobile{
+  display: none;
+}
+.category-container{
+  display: block;
+}
+.category-container-mobile{
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .filter-category{
+    display: none;
+  }
+  .filter-category-mobile{
+    display: block;
+  }
+  .category-container{
+    display: none;
+  }
+  .category-container-mobile{
+    display: block;
+  }
+}

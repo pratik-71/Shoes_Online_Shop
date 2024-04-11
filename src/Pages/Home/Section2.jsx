@@ -22,65 +22,60 @@ const Section2 = () => {
       items: 3,
     },
     mobile: {
-      breakpoint: { max: 809, min: 516 },
+      breakpoint: { max: 767, min: 516 },
       items: 2,
     },
     small_mobile: {
-      breakpoint: { max: 516, min: 0 },
+      breakpoint: { max: 515, min: 0 },
       items: 1,
     },
   };
 
   return (
-    <>
-      <section className="my-3">
-        <Container>
-          <div className="title">
-            <h3 className="text-center special_edition">
-              {" "}
-              - SPECIAL EDITION -{" "}
-            </h3>
-          </div>
-          <Carousel
-            responsive={responsive}
-            autoPlay={true}
-            autoPlaySpeed={1500}
-            infinite={true}
-            customTransition="transform 500ms ease-in-out"
-          >
-            {coursal.map((data, index) => (
-              <div className="edition_card" key={index}>
-                <Card>
-                  <img
-                    src={data.image}
-                    className="img_holder"
-                    style={{ height: "50vh" }}
-                  />
-                  <Card.Body>
-                    <Card.Title className="info_info_section">
-                      {data.title}{" "}
-                    </Card.Title>
+    <section className="my-3">
+      <Container>
+        <div className="title">
+          <h3 className="text-center special_edition">- SPECIAL EDITION -</h3>
+        </div>
+        <Carousel
+          responsive={responsive}
+          autoPlay={true}
+          autoPlaySpeed={1500}
+          infinite={true}
+          customTransition="transform 500ms ease-in-out"
+          containerClass="carousel-container"
+        >
+          {coursal.map((data, index) => (
+            <div className="edition_card mx-auto" key={index}>
+              <Card>
+                <img
+                  src={data.image}
+                  className="img_holder"
+                  alt={data.title}
+                  style={{ height: "50vh" }}
+                />
+                <Card.Body>
+                  <Card.Title className="info_info_section">
+                    {data.title}
+                  </Card.Title>
 
-                    <div className="info_btn_section">
-                      <Link to={`/product_details/${data.redirect_id}`}>
-                        <button className="py-1 px-3 mx-2 info-btn">
-                          Buy Now
-                        </button>
-                      </Link>
-                    </div>
-                  </Card.Body>
-                </Card>
-              </div>
-            ))}
-          </Carousel>
-          <div className="d-flex justify-content-center align-items-center">
-            <div className="line mx-3"></div>
-            <button className="px-4 py-1 my-3 more_btn">More</button>
-            <div className="line mx-3"></div>
-          </div>
-        </Container>
-      </section>
-    </>
+                  <div className="info_btn_section">
+                    <Link to={`/product_details/${data.redirect_id}`}>
+                      <button className="py-1 px-3 mx-2 info-btn">Buy Now</button>
+                    </Link>
+                  </div>
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
+        </Carousel>
+        <div className="d-flex justify-content-center align-items-center">
+          <div className="line mx-3"></div>
+          <button className="px-4 py-1 my-3 more_btn">More</button>
+          <div className="line mx-3"></div>
+        </div>
+      </Container>
+    </section>
   );
 };
 

@@ -8,6 +8,7 @@ import {useSelector} from "react-redux"
 
 const Header = () => {
   let isAuthenticated = useSelector((state)=>state.auth.isAuthenticated)
+  console.log(isAuthenticated)
   let image = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQgb-mKD-mTbsShRj58zdW2EimNjZdJWoB-tpvPFAozBo0s50e3bmOkEu93H6YWvrFGiE&usqp=CAU"
 
   return (
