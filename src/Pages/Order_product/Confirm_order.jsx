@@ -9,6 +9,9 @@ const Confirm_order = () => {
     const product = useSelector((state)=>state.products.product_details)
     const address = useSelector((state)=>state.addresses.selected_address)
 
+    const currentDate = new Date();
+    const deliveryDate = new Date(currentDate.setDate(currentDate.getDate() + 6));
+
     console.log(product)
     console.log(address)
 
@@ -105,7 +108,7 @@ const Confirm_order = () => {
         </Row>
         <Row>
             <div className="text-center my-3">
-                <h5>Your Order will be delieverd in 3rd March</h5>
+                <h5>Your Order will be delieverd in {deliveryDate.toDateString()}</h5>
             </div>
             <div className='text-center'> 
                <Link to="/Order_placed">

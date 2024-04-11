@@ -61,8 +61,8 @@ const Old_address = () => {
     <>
       <div className="old_address">
         <h4 className="text-center">Use Old Address</h4>
-        <FormGroup style={{ maxHeight: "60vh", overflow: "scroll" }}>
-          <div className="mb-3 my-3 d-flex flex-column p-2">
+        <FormGroup className="old-address-form">
+          <div className="mb-3 my-1 d-flex flex-column p-2">
             {old_address.map((add) => (
               <label key={add._id} className="address-option px-5 py-1 my-1">
                 <input

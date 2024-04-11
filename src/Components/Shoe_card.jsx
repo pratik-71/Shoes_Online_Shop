@@ -95,8 +95,7 @@ const Shoe_card = ({ display_number }) => {
       ) : (
         filtered_products.map((item) => (
           <Card
-            style={{ width: "18rem", height: "50vh" }}
-            className="my-3"
+            className="my-3 shoe_card_box"
             key={item._id}
           >
             <div className="image_box">

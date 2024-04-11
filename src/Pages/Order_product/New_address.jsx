@@ -49,7 +49,7 @@ const New_address = () => {
     <>
       <div className="new_address">
         <Form onSubmit={handleSubmit(send_form_address)}>
-          <h4 className="text-center my-2">Add New Address</h4>
+          <h4 className="text-center">Add New Address</h4>
 
           <div className="mb-3">
             <input

@@ -19,4 +19,13 @@
     border-radius: 5px;
     cursor: pointer;
   }
-  
+  .old-address-form{
+    max-height: 60vh;
+     overflow: scroll 
+  }
+  @media (max-width: 767px) {
+    .old-address-form{
+      max-height: 30vh;
+       overflow: scroll 
+    }
+  }

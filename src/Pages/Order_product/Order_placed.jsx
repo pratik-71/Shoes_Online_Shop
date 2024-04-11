@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom'
 const Order_placed = () => {
     const [success,setsuccess] = useState(false)
     const [wrong,setwrong]=useState("")
+    const [deli_date,setdeli_date] = useState("15 March")
     const jwttoken = localStorage.getItem("Auth-Token")
    const product = useSelector((state)=>state.products.product_details)
    const address = useSelector((state)=>state.addresses.selected_address)
@@ -29,6 +30,8 @@ const Order_placed = () => {
 
         if (response) {
             setsuccess(true)
+            setdeli_date(response.data.delivery_date?.substring(0, 10));
+            console.log(deli_date)
         } 
     } catch (error) {
         if (error.response && error.response.status === 404) {
@@ -55,7 +58,7 @@ const Order_placed = () => {
             <Row >
             <div className="text-center my-4">
             <h2>Congratulation Your Order Placed Succesfully</h2>
-            <h5>Your Product will be delievered on 15th March</h5>
+            <h5>Your Product will be delievered on {deli_date}</h5>
             </div>
       </Row>
       <Row>

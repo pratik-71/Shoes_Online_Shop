@@ -46,13 +46,22 @@
   height: 120px;
   width: auto;
 }
-
-
-
-
-
-
-
+.shoe_card_box{
+  width: 18rem;
+  height: 50vh
+}
+@media (max-width: 767px) {
+  .shoe_card_box{
+    width: 16rem;
+    height: 35vh;
+  }
+  .shoe_img_holder{
+  width: 100%; 
+  padding: 5px;
+  height: 25vh; 
+  border-radius: 10px;
+  }
+}
 
 /* Slider coursal section 2 */
 
